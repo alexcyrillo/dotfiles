@@ -1,19 +1,21 @@
 # ---------------------------------------------------------------------
 # Função unificada de backup para dotfiles
-# Faz o commit e push automaticamente, sem pedir mensagem.
+# Comita apenas os caminhos especificados.
 #
 # Aceita argumentos:
-#   zsh:         Salva apenas as configurações do Zsh
-#   dconf-keys:  Salva apenas os atalhos do GNOME
-#   dconf-exts:  Salva apenas as extensões do GNOME
-#   dconf-all:   Salva todo o dconf
-#   all:         Salva Zsh e Dconf
+#   zsh
+#   scripts (NOVO)
+#   dconf-keys
+#   dconf-exts
+#   dconf-all
+#   all
 # ---------------------------------------------------------------------
 dotfiles_bkp() {
     # --- Caminhos ---
     local REPO_DIR=~/dotfiles
     local ZSH_DIR=~/dotfiles/zsh
     local DCONF_DIR=~/dotfiles/gnome-dconf
+    local SCRIPT_DIR=~/dotfiles/scripts # <-- MUDANÇA AQUI
     local argument="$1"
 
     # Garante que o diretório dconf exista
@@ -27,9 +29,7 @@ dotfiles_bkp() {
         dconf dump /org/gnome/desktop/wm/keybindings/ > "$DCONF_DIR/gnome-keybindings-wm.dconf"
         dconf dump /org/gnome/shell/keybindings/ > "$DCONF_DIR/gnome-keybindings-shell.dconf"
         
-        git -C "$REPO_DIR" add "$DCONF_DIR/gnome-keybindings-media.dconf" \
-                               "$DCONF_DIR/gnome-keybindings-wm.dconf" \
-                               "$DCONF_DIR/gnome-keybindings-shell.dconf"
+        git -C "$REPO_DIR" add "$DCONF_DIR/gnome-keybindings-media.dconf" "$DCONF_DIR/gnome-keybindings-wm.dconf" "$DCONF_DIR/gnome-keybindings-shell.dconf"
     }
 
     _bkp_dconf_exts() {
@@ -44,16 +44,40 @@ dotfiles_bkp() {
         git -C "$REPO_DIR" add "$ZSH_DIR"
     }
 
-    # --- Função Interna de Commit ---
-    # $1 = A mensagem de commit
-    _bkp_commit_push() {
-        local commit_message="$1"
+    _bkp_script() {
+        echo "-> Fazendo backup da pasta scripts..." # <-- MUDANÇA AQUI
+        git -C "$REPO_DIR" add "$SCRIPT_DIR"
+    }
 
-        # Verifica se há qualquer alteração no 'stage'
-        if ! git -C "$REPO_DIR" diff --quiet --staged; then
+    # --- Função Interna de Commit ---
+    # $1 = 'auto' ou 'ask' (modo de commit)
+    # $2 = A mensagem (se 'auto') ou o Padrão (se 'ask')
+    # $3, $4, ... = Os caminhos para comitar
+    _bkp_commit_push() {
+        local mode="$1"
+        local message="$2"
+        shift 2 # Remove 'mode' e 'message' da lista
+        local paths=("$@") # Pega o resto dos argumentos como os caminhos
+        local commit_message=""
+
+        # Verifica se há alterações no 'stage' *apenas* para os caminhos especificados
+        if ! git -C "$REPO_DIR" diff --quiet --staged -- "${paths[@]}"; then
             echo "-> Novas alterações encontradas."
+
+            if [ "$mode" = "ask" ]; then
+                echo "Digite a mensagem do commit (Padrão: '$message'):"
+                read -p "> " commit_message
+                if [ -z "$commit_message" ]; then
+                    commit_message="$message"
+                fi
+            else
+                # Modo 'auto'
+                commit_message="$message"
+            fi
+            
             echo "-> Fazendo commit: '$commit_message'"
-            git -C "$REPO_DIR" commit -m "$commit_message"
+            # Comita APENAS os caminhos especificados
+            git -C "$REPO_DIR" commit -m "$commit_message" -- "${paths[@]}" 
             
             echo "-> Enviando para o repositório..."
             git -C "$REPO_DIR" push
@@ -69,37 +93,42 @@ dotfiles_bkp() {
 
     if [ -z "$argument" ]; then
         echo "ERRO: Nenhum argumento fornecido."
-        echo "Uso: dotfiles_bkp [zsh | dconf-keys | dconf-exts | dconf-all | all]"
+        echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]" # <-- MUDANÇA AQUI
         return 1
     fi
 
     case "$argument" in
         zsh)
             _bkp_zsh
-            _bkp_commit_push "Atualizar arquivos de configuração Zsh"
+            _bkp_commit_push "ask" "Atualizar arquivos de configuração Zsh" "$ZSH_DIR"
+            ;;
+        scripts) # <-- MUDANÇA AQUI
+            _bkp_script
+            _bkp_commit_push "ask" "Atualizar scripts" "$SCRIPT_DIR"
             ;;
         dconf-keys)
             _bkp_dconf_keys
-            _bkp_commit_push "Atualizar atalhos de teclado (GNOME)"
+            _bkp_commit_push "auto" "Atualizar atalhos de teclado (GNOME)" "$DCONF_DIR/gnome-keybindings-media.dconf" "$DCONF_DIR/gnome-keybindings-wm.dconf" "$DCONF_DIR/gnome-keybindings-shell.dconf"
             ;;
         dconf-exts)
             _bkp_dconf_exts
-            _bkp_commit_push "Atualizar configurações de extensões (GNOME)"
+            _bkp_commit_push "auto" "Atualizar configurações de extensões (GNOME)" "$DCONF_DIR/gnome-extensions-settings.dconf"
             ;;
         dconf-all)
             _bkp_dconf_keys
             _bkp_dconf_exts
-            _bkp_commit_push "Atualizar configurações dconf (GNOME)"
+            _bkp_commit_push "auto" "Atualizar configurações dconf (GNOME)" "$DCONF_DIR"
             ;;
         all)
             _bkp_zsh
+            _bkp_script
             _bkp_dconf_keys
             _bkp_dconf_exts
-            _bkp_commit_push "Atualizar dotfiles (Zsh e GNOME)"
+            _bkp_commit_push "ask" "Atualizar dotfiles (Zsh, Scripts e GNOME)" "$ZSH_DIR" "$DCONF_DIR" "$SCRIPT_DIR" # <-- MUDANÇA AQUI
             ;;
         *)
             echo "ERRO: Argumento '$argument' inválido."
-            echo "Uso: dotfiles_bkp [zsh | dconf-keys | dconf-exts | dconf-all | all]"
+            echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]" # <-- MUDANÇA AQUI
             return 1
             ;;
     esac
