@@ -93,7 +93,7 @@ dotfiles_bkp() {
 
     if [ -z "$argument" ]; then
         echo "ERRO: Nenhum argumento fornecido."
-        echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]" # <-- MUDANÇA AQUI
+        echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]"
         return 1
     fi
 
@@ -102,33 +102,33 @@ dotfiles_bkp() {
             _bkp_zsh
             _bkp_commit_push "ask" "Atualizar arquivos de configuração Zsh" "$ZSH_DIR"
             ;;
-        scripts) # <-- MUDANÇA AQUI
+        scripts)
             _bkp_script
             _bkp_commit_push "ask" "Atualizar scripts" "$SCRIPT_DIR"
             ;;
         dconf-keys)
             _bkp_dconf_keys
-            _bkp_commit_push "auto" "Atualizar atalhos de teclado (GNOME)" "$DCONF_DIR/gnome-keybindings-media.dconf" "$DCONF_DIR/gnome-keybindings-wm.dconf" "$DCONF_DIR/gnome-keybindings-shell.dconf"
+            _bkp_commit_push "auto" "Atualizar atalhos de teclado" "$DCONF_DIR/gnome-keybindings-media.dconf" "$DCONF_DIR/gnome-keybindings-wm.dconf" "$DCONF_DIR/gnome-keybindings-shell.dconf"
             ;;
         dconf-exts)
             _bkp_dconf_exts
-            _bkp_commit_push "auto" "Atualizar configurações de extensões (GNOME)" "$DCONF_DIR/gnome-extensions-settings.dconf"
+            _bkp_commit_push "auto" "Atualizar configurações de extensões" "$DCONF_DIR/gnome-extensions-settings.dconf"
             ;;
         dconf-all)
             _bkp_dconf_keys
             _bkp_dconf_exts
-            _bkp_commit_push "auto" "Atualizar configurações dconf (GNOME)" "$DCONF_DIR"
+            _bkp_commit_push "auto" "Atualizar configurações dconf" "$DCONF_DIR"
             ;;
         all)
             _bkp_zsh
             _bkp_script
             _bkp_dconf_keys
             _bkp_dconf_exts
-            _bkp_commit_push "ask" "Atualizar dotfiles (Zsh, Scripts e GNOME)" "$ZSH_DIR" "$DCONF_DIR" "$SCRIPT_DIR" # <-- MUDANÇA AQUI
+            _bkp_commit_push "ask" "Atualizar dotfiles" "$ZSH_DIR" "$DCONF_DIR" "$SCRIPT_DIR"
             ;;
         *)
             echo "ERRO: Argumento '$argument' inválido."
-            echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]" # <-- MUDANÇA AQUI
+            echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]"
             return 1
             ;;
     esac
