@@ -242,4 +242,4 @@ fi
 echo ""
 echo "--- Instalação Concluída! ---"
 echo "Pode ser necessário alterar seu shell padrão para Zsh com: chsh -s \$(which zsh)"
-echo "Feche e reabra seu terminal (ou saia e entre na sessão) para usar o Zsh."
+echo "Feche e reabra seu terminal (ou saia e entre na sessão) para usar o Zsh."0
