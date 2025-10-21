@@ -1,0 +1,21 @@
+[/]
+control-center=['<Super>c']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
+email=['<Super>e']
+home=['<Super>f']
+www=['<Super>w']
+
+[custom-keybindings/custom0]
+binding='<Shift><Control>Escape'
+command='flatpak run io.missioncenter.MissionCenter'
+name='Gerenciador de Tarefas'
+
+[custom-keybindings/custom1]
+binding='<Super>t'
+command='ptyxis'
+name='Terminal'
+
+[custom-keybindings/custom4]
+binding='<Super>s'
+command='flatpak run com.spotify.Client'
+name='Spotify'
