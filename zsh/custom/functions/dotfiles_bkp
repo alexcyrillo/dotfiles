@@ -1,0 +1,108 @@
+# ---------------------------------------------------------------------
+# Função unificada de backup para dotfiles
+# Faz o commit e push automaticamente, sem pedir mensagem.
+#
+# Aceita argumentos:
+#   zsh:         Salva apenas as configurações do Zsh
+#   dconf-keys:  Salva apenas os atalhos do GNOME
+#   dconf-exts:  Salva apenas as extensões do GNOME
+#   dconf-all:   Salva todo o dconf
+#   all:         Salva Zsh e Dconf
+# ---------------------------------------------------------------------
+dotfiles_bkp() {
+    # --- Caminhos ---
+    local REPO_DIR=~/dotfiles
+    local ZSH_DIR=~/dotfiles/zsh
+    local DCONF_DIR=~/dotfiles/gnome-dconf
+    local argument="$1"
+
+    # Garante que o diretório dconf exista
+    mkdir -p "$DCONF_DIR"
+
+    # --- Funções Internas de Backup ---
+
+    _bkp_dconf_keys() {
+        echo "-> Fazendo backup dos Atalhos de Teclado..."
+        dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > "$DCONF_DIR/gnome-keybindings-media.dconf"
+        dconf dump /org/gnome/desktop/wm/keybindings/ > "$DCONF_DIR/gnome-keybindings-wm.dconf"
+        dconf dump /org/gnome/shell/keybindings/ > "$DCONF_DIR/gnome-keybindings-shell.dconf"
+        
+        git -C "$REPO_DIR" add "$DCONF_DIR/gnome-keybindings-media.dconf" \
+                               "$DCONF_DIR/gnome-keybindings-wm.dconf" \
+                               "$DCONF_DIR/gnome-keybindings-shell.dconf"
+    }
+
+    _bkp_dconf_exts() {
+        echo "-> Fazendo backup das Extensões..."
+        dconf dump /org/gnome/shell/extensions/ > "$DCONF_DIR/gnome-extensions-settings.dconf"
+        
+        git -C "$REPO_DIR" add "$DCONF_DIR/gnome-extensions-settings.dconf"
+    }
+
+    _bkp_zsh() {
+        echo "-> Fazendo backup dos arquivos Zsh..."
+        git -C "$REPO_DIR" add "$ZSH_DIR"
+    }
+
+    # --- Função Interna de Commit ---
+    # $1 = A mensagem de commit
+    _bkp_commit_push() {
+        local commit_message="$1"
+
+        # Verifica se há qualquer alteração no 'stage'
+        if ! git -C "$REPO_DIR" diff --quiet --staged; then
+            echo "-> Novas alterações encontradas."
+            echo "-> Fazendo commit: '$commit_message'"
+            git -C "$REPO_DIR" commit -m "$commit_message"
+            
+            echo "-> Enviando para o repositório..."
+            git -C "$REPO_DIR" push
+        else
+            echo "-> Nenhuma alteração. Nada para enviar."
+        fi
+    }
+    # --- Fim das Funções Internas ---
+
+
+    # --- Lógica Principal ---
+    echo "Iniciando backup dos dotfiles..."
+
+    if [ -z "$argument" ]; then
+        echo "ERRO: Nenhum argumento fornecido."
+        echo "Uso: dotfiles_bkp [zsh | dconf-keys | dconf-exts | dconf-all | all]"
+        return 1
+    fi
+
+    case "$argument" in
+        zsh)
+            _bkp_zsh
+            _bkp_commit_push "Atualizar arquivos de configuração Zsh"
+            ;;
+        dconf-keys)
+            _bkp_dconf_keys
+            _bkp_commit_push "Atualizar atalhos de teclado (GNOME)"
+            ;;
+        dconf-exts)
+            _bkp_dconf_exts
+            _bkp_commit_push "Atualizar configurações de extensões (GNOME)"
+            ;;
+        dconf-all)
+            _bkp_dconf_keys
+            _bkp_dconf_exts
+            _bkp_commit_push "Atualizar configurações dconf (GNOME)"
+            ;;
+        all)
+            _bkp_zsh
+            _bkp_dconf_keys
+            _bkp_dconf_exts
+            _bkp_commit_push "Atualizar dotfiles (Zsh e GNOME)"
+            ;;
+        *)
+            echo "ERRO: Argumento '$argument' inválido."
+            echo "Uso: dotfiles_bkp [zsh | dconf-keys | dconf-exts | dconf-all | all]"
+            return 1
+            ;;
+    esac
+
+    echo "Backup concluído!"
+}

@@ -1,0 +1,15 @@
+#compdef dotfiles_bkp
+
+# Define os argumentos e suas descrições
+local -a options
+options=(
+    'zsh:Fazer backup apenas das configurações do Zsh'
+    'dconf-keys:Fazer backup apenas dos atalhos do GNOME'
+    'dconf-exts:Fazer backup apenas das extensões do GNOME'
+    'dconf-all:Fazer backup de todo o dconf (atalhos e extensões)'
+    'all:Fazer backup de TUDO (Zsh e Dconf)'
+)
+
+# _describe é a função correta para este tipo de menu.
+# Ela entende o formato 'comando:descrição' perfeitamente.
+_describe 'comando' options
