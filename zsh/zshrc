@@ -13,15 +13,8 @@ source $ZSH/oh-my-zsh.sh
 
 export SPACESHIP_CONFIG="$HOME/.oh-my-zsh/custom/spaceship.zsh"
 
-# --- Carregar Funções Personalizadas (Autoload) ---
-# O OMZ já adicionou '$ZSH/custom' ao $fpath.
-# Nós adicionamos nosso novo subdiretório 'functions'.
 fpath=($ZSH/custom/functions $fpath)
 
-# Registra os nomes das funções para autoload
 autoload dotfiles_bkp
-# autoload mkcd   (adicione suas outras funções aqui)
-# autoload extract
-# --- Fim das Funções ---
 
-
+fastfetch
