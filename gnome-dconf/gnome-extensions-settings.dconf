@@ -57,7 +57,7 @@ brightness=0.59999999999999998
 sigma=30
 
 [caffeine]
-indicator-position-max=3
+indicator-position-max=4
 inhibit-apps=['dev-box-code.desktop']
 user-enabled=true
 
@@ -416,7 +416,7 @@ version=2
 
 [quicksettings-audio-devices-hider]
 available-input-names=['Microfone – USB Audio & HID', 'Microfone – Camera']
-available-output-names=['HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller', 'Saída analógica – USB Audio & HID', 'Saída digital (S/PDIF) – USB Audio & HID']
+available-output-names=['Saída analógica – USB Audio & HID', 'Saída digital (S/PDIF) – USB Audio & HID', 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller']
 excluded-input-names=['Microfone – Camera']
 excluded-output-names=@as []
 
