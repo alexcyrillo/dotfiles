@@ -4,6 +4,7 @@
 local -a options
 options=(
     'zsh:Fazer backup apenas das configurações do Zsh'
+    'config:Fazer backup apenas das configurações da pasta .config'
     'scripts:Fazer backup da pasta de scripts'
     'dconf-keys:Fazer backup apenas dos atalhos do GNOME'
     'dconf-exts:Fazer backup apenas das extensões do GNOME'

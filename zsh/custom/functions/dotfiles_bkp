@@ -4,6 +4,7 @@
 #
 # Aceita argumentos:
 #   zsh
+#   config
 #   scripts (NOVO)
 #   dconf-keys
 #   dconf-exts
@@ -13,9 +14,10 @@
 dotfiles_bkp() {
     # --- Caminhos ---
     local REPO_DIR=~/dotfiles
+    local CONFIG_DIR=~/dotfiles/.config
     local ZSH_DIR=~/dotfiles/zsh
     local DCONF_DIR=~/dotfiles/gnome-dconf
-    local SCRIPT_DIR=~/dotfiles/scripts # <-- MUDANÇA AQUI
+    local SCRIPT_DIR=~/dotfiles/scripts
     local argument="$1"
 
     # Garante que o diretório dconf exista
@@ -45,8 +47,13 @@ dotfiles_bkp() {
     }
 
     _bkp_script() {
-        echo "-> Fazendo backup da pasta scripts..." # <-- MUDANÇA AQUI
+        echo "-> Fazendo backup da pasta scripts..."
         git -C "$REPO_DIR" add "$SCRIPT_DIR"
+    }
+    
+    _bkp_config() {
+    echo "-> Fazendo backup da pasta config..."
+    git -C "$REPO_DIR" add "$CONFIG_DIR"
     }
 
     # --- Função Interna de Commit ---
@@ -93,7 +100,7 @@ dotfiles_bkp() {
 
     if [ -z "$argument" ]; then
         echo "ERRO: Nenhum argumento fornecido."
-        echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]"
+        echo "Uso: dotfiles_bkp [zsh | config | scripts | dconf-keys | dconf-exts | dconf-all | all]"
         return 1
     fi
 
@@ -101,6 +108,10 @@ dotfiles_bkp() {
         zsh)
             _bkp_zsh
             _bkp_commit_push "ask" "Atualizar arquivos de configuração Zsh" "$ZSH_DIR"
+            ;;
+        config)
+            _bkp_config
+            _bkp_commit_push "ask" "Atualizar arquivos da pasta .config" "$CONFIG_DIR"
             ;;
         scripts)
             _bkp_script
@@ -121,6 +132,7 @@ dotfiles_bkp() {
             ;;
         all)
             _bkp_zsh
+            _bkp_config
             _bkp_script
             _bkp_dconf_keys
             _bkp_dconf_exts
@@ -128,7 +140,7 @@ dotfiles_bkp() {
             ;;
         *)
             echo "ERRO: Argumento '$argument' inválido."
-            echo "Uso: dotfiles_bkp [zsh | scripts | dconf-keys | dconf-exts | dconf-all | all]"
+            echo "Uso: dotfiles_bkp [zsh | config | scripts | dconf-keys | dconf-exts | dconf-all | all]"
             return 1
             ;;
     esac
