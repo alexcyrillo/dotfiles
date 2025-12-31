@@ -5,11 +5,17 @@
 # Aceita argumentos:
 #   zsh
 #   config
-#   scripts (NOVO)
+#   scripts
 #   dconf-keys
 #   dconf-exts
 #   dconf-all
 #   all
+# ---------------------------------------------------------------------
+Aqui está o código corrigido e limpo:
+Bash
+
+# ---------------------------------------------------------------------
+# Função unificada de backup para dotfiles
 # ---------------------------------------------------------------------
 dotfiles_bkp() {
     # --- Caminhos ---
@@ -57,33 +63,29 @@ dotfiles_bkp() {
     }
 
     # --- Função Interna de Commit ---
-    # $1 = 'auto' ou 'ask' (modo de commit)
-    # $2 = A mensagem (se 'auto') ou o Padrão (se 'ask')
-    # $3, $4, ... = Os caminhos para comitar
     _bkp_commit_push() {
         local mode="$1"
         local message="$2"
-        shift 2 # Remove 'mode' e 'message' da lista
-        local paths=("$@") # Pega o resto dos argumentos como os caminhos
+        shift 2
+        local paths=("$@") 
         local commit_message=""
 
-        # Verifica se há alterações no 'stage' *apenas* para os caminhos especificados
+        # Verifica alterações no stage
         if ! git -C "$REPO_DIR" diff --quiet --staged -- "${paths[@]}"; then
             echo "-> Novas alterações encontradas."
 
             if [ "$mode" = "ask" ]; then
                 echo "Digite a mensagem do commit (Padrão: '$message'):"
-                read -p "> " commit_message
+                # CORREÇÃO: Sintaxe read compatível com Zsh
+                read "commit_message?> "
                 if [ -z "$commit_message" ]; then
                     commit_message="$message"
                 fi
             else
-                # Modo 'auto'
                 commit_message="$message"
             fi
             
             echo "-> Fazendo commit: '$commit_message'"
-            # Comita APENAS os caminhos especificados
             git -C "$REPO_DIR" commit -m "$commit_message" -- "${paths[@]}" 
             
             echo "-> Enviando para o repositório..."
@@ -92,8 +94,6 @@ dotfiles_bkp() {
             echo "-> Nenhuma alteração. Nada para enviar."
         fi
     }
-    # --- Fim das Funções Internas ---
-
 
     # --- Lógica Principal ---
     echo "Iniciando backup dos dotfiles..."
@@ -119,11 +119,11 @@ dotfiles_bkp() {
             ;;
         dconf-keys)
             _bkp_dconf_keys
-            _bkp_commit_push "auto" "Atualizar atalhos de teclado" "$DCONF_DIR/gnome-keybindings-media.dconf" "$DCONF_DIR/gnome-keybindings-wm.dconf" "$DCONF_DIR/gnome-keybindings-shell.dconf"
+            _bkp_commit_push "auto" "Atualizar atalhos de teclado" "$DCONF_DIR"
             ;;
         dconf-exts)
             _bkp_dconf_exts
-            _bkp_commit_push "auto" "Atualizar configurações de extensões" "$DCONF_DIR/gnome-extensions-settings.dconf"
+            _bkp_commit_push "auto" "Atualizar configurações de extensões" "$DCONF_DIR"
             ;;
         dconf-all)
             _bkp_dconf_keys
@@ -136,11 +136,11 @@ dotfiles_bkp() {
             _bkp_script
             _bkp_dconf_keys
             _bkp_dconf_exts
-            _bkp_commit_push "ask" "Atualizar dotfiles" "$ZSH_DIR" "$DCONF_DIR" "$SCRIPT_DIR"
+            # CORREÇÃO: Adicionado $CONFIG_DIR na lista de commit abaixo
+            _bkp_commit_push "ask" "Atualizar dotfiles" "$ZSH_DIR" "$CONFIG_DIR" "$SCRIPT_DIR" "$DCONF_DIR"
             ;;
         *)
             echo "ERRO: Argumento '$argument' inválido."
-            echo "Uso: dotfiles_bkp [zsh | config | scripts | dconf-keys | dconf-exts | dconf-all | all]"
             return 1
             ;;
     esac
