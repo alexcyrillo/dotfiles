@@ -5,7 +5,7 @@ config-notification {
 }
 
 layout {
-    gaps 6
+    gaps 5
     default-column-display "tabbed"
     background-color "transparent"
     always-center-single-column true
