@@ -1,0 +1,36 @@
+[config]
+reload_on_change = true
+
+[templates.dank_shell]
+input_path = "~/.config/matugen/templates/dank-shell.css"
+output_path = "~/.config/DankMaterialShell/dank-colors.css"
+
+[templates.vesktop]
+input_path = "~/.config/matugen/templates/midnight-discord.css"
+output_path = '~/.var/app/dev.vencord.Vesktop/config/vesktop/themes/midnight-discord.css'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/kitty.conf'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.spotify]
+input_path = "~/.config/matugen/templates/spotify.ini"
+output_path = "~/.config/spicetify/Themes/Matugen/color.ini"
+post_hook = "spicetify config current_theme Matugen color_scheme Matugen && spicetify apply -n"
