@@ -57,7 +57,8 @@ brightness=0.59999999999999998
 sigma=30
 
 [caffeine]
-indicator-position-max=4
+cli-toggle=false
+indicator-position-max=2
 inhibit-apps=['dev-box-code.desktop']
 user-enabled=true
 
@@ -192,7 +193,7 @@ focus-border-toggle=false
 move-pointer-focus-enabled=false
 quick-settings-enabled=true
 split-border-toggle=true
-tiling-mode-enabled=true
+tiling-mode-enabled=false
 window-gap-hidden-on-single=true
 window-gap-size=uint32 2
 window-gap-size-increment=uint32 1
@@ -250,7 +251,7 @@ show-indicators=false
 
 [gsconnect/device/08cfb8e4fa9d49299101ff935311f321]
 certificate-pem='-----BEGIN CERTIFICATE-----\nMIIBjDCCATGgAwIBAgIBATAKBggqhkjOPQQDBDBPMSkwJwYDVQQDDCAwOGNmYjhl\nNGZhOWQ0OTI5OTEwMWZmOTM1MzExZjMyMTEUMBIGA1UECwwLS0RFIENvbm5lY3Qx\nDDAKBgNVBAoMA0tERTAeFw0yNDA3MzEwMzAwMDBaFw0zNTA3MzEwMzAwMDBaME8x\nKTAnBgNVBAMMIDA4Y2ZiOGU0ZmE5ZDQ5Mjk5MTAxZmY5MzUzMTFmMzIxMRQwEgYD\nVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RFMFkwEwYHKoZIzj0CAQYIKoZI\nzj0DAQcDQgAEGdI1E5NRAqkVmV/mUWJt/vUmgvC6P5oRSn9h889dNglF3T3/OZd5\nR/Adk40WQczxh6HbOYe6TJ/fy7Tu7qyUljAKBggqhkjOPQQDBANJADBGAiEA+ToU\n/z8pD/qCWPC+zuDAL0sItklLye/iXbby9zQzA7oCIQCLlYBrgikPVNyiDJN9DCSY\nfIOI/1kyYbCcKgKtFtNkbA==\n-----END CERTIFICATE-----\n'
-incoming-capabilities=['kdeconnect.battery', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request', 'kdeconnect.telephony.request_mute']
+incoming-capabilities=['kdeconnect.battery', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request_mute']
 last-connection='lan://192.168.1.50:1716'
 name='Galaxy S23'
 outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.presenter', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.attachment_file', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
@@ -266,7 +267,7 @@ receive-content=true
 send-content=true
 
 [gsconnect/device/08cfb8e4fa9d49299101ff935311f321/plugin/notification]
-applications='{"Spotify":{"iconName":"system-run-symbolic","enabled":false},"Ferdium":{"iconName":"system-run-symbolic","enabled":false},"Relato de Problemas":{"iconName":"face-sad-symbolic","enabled":false},"Programas":{"iconName":"system-run-symbolic","enabled":true},"Arquivos":{"iconName":"org.gnome.Nautilus","enabled":true},"Energia":{"iconName":"","enabled":true},"Boxes":{"iconName":"org.gnome.Boxes","enabled":true},"Test Application Name":{"iconName":"dialog-information","enabled":false},"Ajustes":{"iconName":"gnome-tweaks","enabled":true},"flameshot":{"iconName":"","enabled":false},"Cliente de E-mail Thunderbird":{"iconName":"system-run-symbolic","enabled":false},"Impressoras":{"iconName":"org.gnome.Settings-printers-symbolic","enabled":true},"Solaar":{"iconName":"solaar","enabled":false},"Eventos e lembretes de tarefas":{"iconName":"org.gnome.Evolution-alarm-notify","enabled":true},"Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Zenity":{"iconName":"application-x-executable","enabled":true},"Discos":{"iconName":"org.gnome.DiskUtility","enabled":true},"Data & hora":{"iconName":"org.gnome.Settings-time-symbolic","enabled":true},"Analisador de uso de disco":{"iconName":"org.gnome.baobab","enabled":true},"Gerenciamento de cor":{"iconName":"org.gnome.Settings-color-symbolic","enabled":true},"Relógios":{"iconName":"org.gnome.clocks","enabled":false},"Monitor do Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Backups":{"iconName":"org.gnome.DejaDup","enabled":true},"Sunshine":{"iconName":"dev.lizardbyte.app.Sunshine-locked","enabled":true},"Contas on-line":{"iconName":"dialog-warning","enabled":true},"setroubleshoot":{"iconName":"/usr/share/icons/hicolor/scalable/apps/setroubleshoot_icon.svg","enabled":true},"Haguichi":{"iconName":"com.github.ztefn.haguichi","enabled":true},"Insync":{"iconName":"insync","enabled":true},"solaar":{"iconName":"","enabled":true},"Upscayl":{"iconName":"system-run-symbolic","enabled":true},"Steam":{"iconName":"","enabled":true},"SteamTinkerLaunch":{"iconName":"/dev/shm/steamtinkerlaunch/steamtinkerlaunch-steam-checked.png","enabled":true},"GoofCord":{"iconName":"io.github.milkshiift.GoofCord","enabled":true},"Firefox":{"iconName":"","enabled":true},"Zen Browser":{"iconName":"app.zen_browser.zen","enabled":false},"ZapZap":{"iconName":"","enabled":false},"discord":{"iconName":"","enabled":true},"Bottles":{"iconName":"com.usebottles.bottles","enabled":true},"WiVRn server":{"iconName":"io.github.wivrn.wivrn","enabled":true},"CorePaint":{"iconName":"org.cubocore.CorePaint","enabled":true}}'
+applications='{"Spotify":{"iconName":"system-run-symbolic","enabled":false},"Ferdium":{"iconName":"system-run-symbolic","enabled":false},"Relato de Problemas":{"iconName":"face-sad-symbolic","enabled":false},"Programas":{"iconName":"system-run-symbolic","enabled":true},"Arquivos":{"iconName":"org.gnome.Nautilus","enabled":true},"Energia":{"iconName":"","enabled":true},"Boxes":{"iconName":"org.gnome.Boxes","enabled":true},"Test Application Name":{"iconName":"dialog-information","enabled":false},"Ajustes":{"iconName":"gnome-tweaks","enabled":true},"flameshot":{"iconName":"","enabled":false},"Cliente de E-mail Thunderbird":{"iconName":"system-run-symbolic","enabled":false},"Impressoras":{"iconName":"org.gnome.Settings-printers-symbolic","enabled":true},"Solaar":{"iconName":"solaar","enabled":false},"Eventos e lembretes de tarefas":{"iconName":"org.gnome.Evolution-alarm-notify","enabled":true},"Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Zenity":{"iconName":"application-x-executable","enabled":true},"Discos":{"iconName":"org.gnome.DiskUtility","enabled":true},"Data & hora":{"iconName":"org.gnome.Settings-time-symbolic","enabled":true},"Analisador de uso de disco":{"iconName":"org.gnome.baobab","enabled":true},"Gerenciamento de cor":{"iconName":"org.gnome.Settings-color-symbolic","enabled":true},"Relógios":{"iconName":"org.gnome.clocks","enabled":false},"Monitor do Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Backups":{"iconName":"org.gnome.DejaDup","enabled":true},"Sunshine":{"iconName":"dev.lizardbyte.app.Sunshine-locked","enabled":true},"Contas on-line":{"iconName":"dialog-warning","enabled":true},"setroubleshoot":{"iconName":"/usr/share/icons/hicolor/scalable/apps/setroubleshoot_icon.svg","enabled":true},"Haguichi":{"iconName":"com.github.ztefn.haguichi","enabled":true},"Insync":{"iconName":"insync","enabled":true},"solaar":{"iconName":"","enabled":true},"Upscayl":{"iconName":"system-run-symbolic","enabled":true},"Steam":{"iconName":"","enabled":true},"SteamTinkerLaunch":{"iconName":"/dev/shm/steamtinkerlaunch/steamtinkerlaunch-steam-checked.png","enabled":true},"GoofCord":{"iconName":"io.github.milkshiift.GoofCord","enabled":true},"Firefox":{"iconName":"","enabled":true},"Zen Browser":{"iconName":"app.zen_browser.zen","enabled":false},"ZapZap":{"iconName":"","enabled":false},"discord":{"iconName":"","enabled":true},"Bottles":{"iconName":"com.usebottles.bottles","enabled":true},"WiVRn server":{"iconName":"io.github.wivrn.wivrn","enabled":true},"CorePaint":{"iconName":"org.cubocore.CorePaint","enabled":true},"Impressão":{"iconName":"io.gitlab.adhami3310.Impression","enabled":true},"Blender":{"iconName":"","enabled":true},"GNOME":{"iconName":"","enabled":true}}'
 
 [gsconnect/device/08cfb8e4fa9d49299101ff935311f321/plugin/share]
 receive-directory='/home/alex/Downloads'
@@ -356,7 +357,7 @@ usr-local-share-backgrounds-folder-path=false
 usr-share-backgrounds-folder-path=false
 
 [mediacontrols]
-blacklisted-players=['org.mozilla.firefox.desktop']
+blacklisted-players=@as []
 colored-player-icon=false
 elements-order=['ICON', 'LABEL', 'CONTROLS']
 extension-index=uint32 99
@@ -365,8 +366,10 @@ fixed-label-width=true
 hide-media-notification=true
 label-width=uint32 140
 scroll-labels=true
+show-control-icons=true
 show-control-icons-seek-backward=false
 show-control-icons-seek-forward=false
+show-label=true
 show-player-icon=true
 show-track-slider=true
 
@@ -415,14 +418,14 @@ profiles-renames={'Camera': {'off': ('Desligado', 'Desligado'), 'input:mono-fall
 version=2
 
 [quicksettings-audio-devices-hider]
-available-input-names=['Microfone – USB Audio & HID', 'Microfone – Camera']
-available-output-names=['Saída analógica – USB Audio & HID', 'Saída digital (S/PDIF) – USB Audio & HID', 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller']
+available-input-names=@as []
+available-output-names=['Saída de falsa']
 excluded-input-names=['Microfone – Camera']
 excluded-output-names=@as []
 
 [quicksettings-audio-devices-renamer]
 input-names-map={'Microfone – USB Audio & HID': 'Headset', 'Microfone – Camera': 'Microfone – Camera', 'Microfone de headset – DualSense wireless controller (PS5)': 'Microfone de headset – DualSense wireless controller (PS5)', 'Entrada digital (S/PDIF) – DualSense wireless controller (PS5)': 'Entrada digital (S/PDIF) – DualSense wireless controller (PS5)'}
-output-names-map={'Saída de linha – Family 17h/19h/1ah HD Audio Controller': 'Caixa de Som', 'Saída digital (S/PDIF) – USB Audio & HID': 'Headset', 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller': 'Monitor', 'Saída analógica – USB Audio & HID': 'Saída analógica – USB Audio & HID', 'HDMI / DisplayPort – Navi 21/23 HDMI/DP Audio Controller': 'Monitor ', 'Saída analógica – DualSense wireless controller (PS5)': 'Saída analógica – DualSense wireless controller (PS5)', 'Saída de falsa': 'Saída de falsa', 'WiVRn': 'WiVRn'}
+output-names-map={'Saída de linha – Family 17h/19h/1ah HD Audio Controller': 'Caixa de Som', 'Saída digital (S/PDIF) – USB Audio & HID': 'Headset', 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller': 'Monitor', 'Saída analógica – USB Audio & HID': 'Saída analógica – USB Audio & HID', 'HDMI / DisplayPort – Navi 21/23 HDMI/DP Audio Controller': 'Monitor ', 'Saída analógica – DualSense wireless controller (PS5)': 'Saída analógica – DualSense wireless controller (PS5)', 'Saída de falsa': 'Saída de falsa', 'WiVRn': 'WiVRn', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller': 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller'}
 
 [rounded-window-corners-reborn]
 border-width=0
