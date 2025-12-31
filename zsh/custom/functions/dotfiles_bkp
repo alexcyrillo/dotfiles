@@ -52,8 +52,8 @@ dotfiles_bkp() {
     }
     
     _bkp_config() {
-    echo "-> Fazendo backup da pasta config..."
-    git -C "$REPO_DIR" add "$CONFIG_DIR"
+        echo "-> Fazendo backup da pasta config..."
+        git -C "$REPO_DIR" add "$CONFIG_DIR"
     }
 
     # --- Função Interna de Commit ---
