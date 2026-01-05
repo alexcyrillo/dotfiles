@@ -86,8 +86,6 @@ output "DP-3" {
     }
 }
 
-
-
 gestures {
     hot-corners {
         off
@@ -195,6 +193,67 @@ animations {
     }
 }
 
+// --- Workspaces ---
+
+workspace "dev" {
+    open-on-output "DP-2"
+}
+
+workspace "steam" {
+    open-on-output "DP-2"
+}
+
+workspace "dev-aux" {
+    open-on-output "DP-3"
+}
+
+workspace "chat" {
+    open-on-output "DP-3"
+}
+
+// --- Window Rules ---
+
+// Cliente Steam: Abre normal (em coluna) no workspace steam
+window-rule {
+    match app-id="steam"
+    
+    open-maximized true
+    open-on-workspace "steam"
+}
+
+// Jogos da Steam: Abrem sempre em modo floating no workspace steam
+window-rule {
+    match app-id=r#"^steam_app_"#
+    
+    block-out-from "screen-capture"
+    draw-border-with-background false
+    open-fullscreen true
+    open-on-workspace "steam"
+}
+
+window-rule {
+    match app-id="zapzap"
+    match title=r#"(?i)discord"#
+        
+    open-focused true
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="code"
+    
+    block-out-from "screen-capture"
+    open-focused true
+    open-on-workspace "dev"
+}
+
+window-rule {
+    match app-id="Postman"
+        
+    open-focused true
+    open-on-workspace "dev-aux"
+}
+
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
@@ -208,9 +267,10 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"spotify"#
-    default-column-width { proportion 0.3; }
-    open-floating false
+    match app-id="Spotify"
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.5; }
+    open-floating true
 }
 
 window-rule {
@@ -224,9 +284,6 @@ window-rule {
 window-rule {
     match app-id="org.gnome.Calculator"
     //match app-id=r#"^org\.gnome\.Nautilus$"#
-    match title="^steam_app_*"
-    match title="^Steam$"
-    match app-id=r#"^steam$"#
     match app-id=r#"^xdg-desktop-portal$"#
     open-floating true
 }
