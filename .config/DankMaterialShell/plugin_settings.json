@@ -1,0 +1,38 @@
+{
+  "displayMirror": {
+    "enabled": false
+  },
+  "dockerManager": {
+    "enabled": true,
+    "groupByCompose": true
+  },
+  "webSearch": {
+    "enabled": true,
+    "searchEngines": [],
+    "defaultEngine": "duckduckgo",
+    "trigger": "?",
+    "noTrigger": false
+  },
+  "displayManager": {
+    "enabled": true
+  },
+  "worldClock": {
+    "enabled": true,
+    "timezones": [
+      {
+        "timezone": "America/Sao_Paulo",
+        "label": "BR"
+      },
+      {
+        "timezone": "Europe/London",
+        "label": "PT"
+      }
+    ]
+  },
+  "linuxWallpaperEngine": {
+    "enabled": false
+  },
+  "commandRunner": {
+    "enabled": false
+  }
+}
