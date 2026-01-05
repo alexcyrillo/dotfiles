@@ -97,7 +97,7 @@
   "showWorkspaceApps": false,
   "maxWorkspaceIcons": 2,
   "workspacesPerMonitor": true,
-  "showOccupiedWorkspacesOnly": true,
+  "showOccupiedWorkspacesOnly": false,
   "dwlShowAllTags": false,
   "workspaceNameIcons": {
     "chat": {
@@ -115,6 +115,18 @@
     "steam": {
       "type": "icon",
       "value": "sports_esports"
+    },
+    "jogo": {
+      "type": "icon",
+      "value": "sports_esports"
+    },
+    "home-2": {
+      "type": "icon",
+      "value": "home"
+    },
+    "home-1": {
+      "type": "icon",
+      "value": "home"
     }
   },
   "waveProgressEnabled": true,

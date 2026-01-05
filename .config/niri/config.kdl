@@ -64,6 +64,7 @@ output "DP-2" {
         preset-column-widths {
             proportion 0.5
             proportion 0.9
+            proportion 1.0
         }
     }  
 }
@@ -82,6 +83,7 @@ output "DP-3" {
             proportion 0.25
             proportion 0.5
             proportion 0.75
+            proportion 1.0
         }
     }
 }
@@ -127,6 +129,7 @@ spawn-at-startup "/usr/lib/xdg-desktop-portal-gtk"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "superpaper"
 spawn-at-startup "sh" "-c" "dms ipc call brightness set 50 'ddc:i2c-10' & dms ipc call brightness set 50 'ddc:i2c-9'"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "XDG_CURRENT_DESKTOP=GNOME"
 
 environment {
 // Tema e Interface
@@ -194,6 +197,9 @@ animations {
 }
 
 // --- Workspaces ---
+workspace "home-1" {
+    open-on-output "DP-2"
+}
 
 workspace "dev" {
     layout {
@@ -202,11 +208,15 @@ workspace "dev" {
     open-on-output "DP-2"
 }
 
-workspace "steam" {
+workspace "jogo" {
     layout {
         center-focused-column "on-overflow"
     }  
     open-on-output "DP-2"
+}
+
+workspace "home-2" {
+    open-on-output "DP-3"
 }
 
 workspace "dev-aux" {
@@ -227,24 +237,26 @@ workspace "chat" {
 
 // --- Window Rules ---
 
-// Cliente Steam: Abre normal (em coluna) no workspace steam
+// Workspace JOGO
+// App cliente
 window-rule {
     match app-id="steam"
     
     open-maximized true
-    open-on-workspace "steam"
+    open-on-workspace "jogo"
 }
 
-// Jogos da Steam: Abrem sempre em modo floating no workspace steam
+// Jogo
 window-rule {
     match app-id=r#"^steam_app_"#
     
     block-out-from "screen-capture"
     draw-border-with-background false
     open-fullscreen true
-    open-on-workspace "steam"
+    open-on-workspace "jogo"
 }
 
+// Workspace CHAT
 window-rule {
     match app-id="zapzap"
     match title=r#"(?i)discord"#
@@ -253,6 +265,7 @@ window-rule {
     open-on-workspace "chat"
 }
 
+// Workspace DEV
 window-rule {
     match app-id="code"
     
@@ -261,16 +274,12 @@ window-rule {
     open-on-workspace "dev"
 }
 
+// Workspace DEV-AUX
 window-rule {
     match app-id="Postman"
         
     open-focused true
     open-on-workspace "dev-aux"
-}
-
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
 }
 
 window-rule {
@@ -280,56 +289,43 @@ window-rule {
     clip-to-geometry true
 }
 
+// Floating
 window-rule {
     match app-id="Spotify"
-    default-column-width { proportion 0.4; }
-    default-window-height { proportion 0.5; }
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"^gnome-control-center$"#
-    match app-id=r#"^pavucontrol$"#
-    match app-id=r#"^nm-connection-editor$"#
-    default-column-width { proportion 0.5; }
-    open-floating false
-}
-
-window-rule {
     match app-id="org.gnome.Calculator"
-    //match app-id=r#"^org\.gnome\.Nautilus$"#
     match app-id=r#"^xdg-desktop-portal$"#
+    match app-id="io.missioncenter.MissionCenter"
+    
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.6; }
     open-floating true
 }
 
+// Tamanho 50%
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    match app-id="Alacritty"
-    match app-id="zen"
-    match app-id="com.mitchellh.ghostty"
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    
+    default-column-width{ proportion 0.5; }
+}
+
+window-rule {
     match app-id="kitty"
     draw-border-with-background false
 }
 
+// Opacidade em nao focado
 window-rule {
     match is-active=false
     opacity 0.9
 }
 
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id="zoom"
-    open-floating true
-}
-
+// Definicao de borda arredondada
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
 
-binds {
-    Mod+Shift+C { spawn "gnome-text-editor" "/home/alex/.config/niri/config.kdl"; }
-    
+binds {    
     // === System & Overview ===
     Mod+D { spawn "niri" "msg" "action" "toggle-overview"; }
     Mod+Tab repeat=false { toggle-overview; }
@@ -355,15 +351,16 @@ binds {
     }
     Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+Shift+C { spawn "gnome-text-editor" "/home/alex/.config/niri/config.kdl"; }
+    Mod+A hotkey-overlay-title="Explorador de Arquivos"{ spawn "nautilus" "--new-window"; }
+    Mod+F hotkey-overlay-title="Navegador"{ spawn "firefox"; }
 
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
         spawn "dms" "ipc" "call" "lock" "lock";
     }
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" {
-        spawn "dms" "ipc" "call" "processlist" "toggle";
-    }
+    Ctrl+Shift+Escape hotkey-overlay-title="Task Manager" { spawn "flatpak" "run" "io.missioncenter.MissionCenter"; }
 
     // === Audio Controls ===
     XF86AudioRaiseVolume allow-when-locked=true {
@@ -392,7 +389,6 @@ binds {
 
     // === Window Management ===
     Mod+Q repeat=false { close-window; }
-    Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Shift+T { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
