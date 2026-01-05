@@ -305,6 +305,7 @@ window-rule {
 // Tamanho 50%
 window-rule {
     match app-id=r#"^org\.gnome\.Nautilus$"#
+    match app-id="org.gnome.TextEditor"  
     
     default-column-width{ proportion 0.5; }
 }
