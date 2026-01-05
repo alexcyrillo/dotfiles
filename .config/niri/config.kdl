@@ -60,7 +60,7 @@ output "DP-2" {
     
     layout {
         center-focused-column "on-overflow"
-        default-column-width { proportion 0.9; }
+        default-column-width { proportion 0.5; }
         preset-column-widths {
             proportion 0.5
             proportion 0.9
@@ -303,12 +303,14 @@ window-rule {
     open-floating true
 }
 
-// Tamanho 50%
+// Tamanho 90%
 window-rule {
-    match app-id=r#"^org\.gnome\.Nautilus$"#
-    match app-id="org.gnome.TextEditor"  
+    //match app-id=r#"^org\.gnome\.Nautilus$"#
+    //match app-id="org.gnome.TextEditor"  
+    match app-id="code"
+    match app-id="firefox"
     
-    default-column-width{ proportion 0.5; }
+    default-column-width{ proportion 0.95; }
 }
 
 window-rule {
@@ -354,9 +356,9 @@ binds {
     }
     Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
-    Mod+Shift+C { spawn "gnome-text-editor" "/home/alex/.config/niri/config.kdl"; }
-    Mod+A hotkey-overlay-title="Explorador de Arquivos"{ spawn "nautilus" "--new-window"; }
-    Mod+F hotkey-overlay-title="Navegador"{ spawn "firefox"; }
+    Mod+Shift+C hotkey-overlay-title="Configuracao Niri"{ spawn "gnome-text-editor" "/home/alex/.config/niri/config.kdl"; }
+    Mod+A hotkey-overlay-title="Explorador de Arquivos" { spawn "nautilus" "--new-window"; }
+    Mod+F hotkey-overlay-title="Navegador" { spawn "firefox"; }
 
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {

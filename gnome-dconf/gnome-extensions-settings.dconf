@@ -418,8 +418,8 @@ profiles-renames={'Camera': {'off': ('Desligado', 'Desligado'), 'input:mono-fall
 version=2
 
 [quicksettings-audio-devices-hider]
-available-input-names=['Internal Microphone – DualSense wireless controller (PS5)', 'Microfone – Camera', 'Microfone – USB Audio & HID']
-available-output-names=['HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller', 'Internal Mono Speaker – DualSense wireless controller (PS5)', 'Saída analógica – USB Audio & HID', 'Saída digital (S/PDIF) – USB Audio & HID', 'Saída de linha – Ryzen HD Audio Controller']
+available-input-names=['Microfone – Camera', 'Microfone – USB Audio & HID']
+available-output-names=['HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller', 'Saída analógica – USB Audio & HID', 'Saída digital (S/PDIF) – USB Audio & HID', 'Saída de linha – Ryzen HD Audio Controller']
 excluded-input-names=['Microfone – Camera']
 excluded-output-names=@as []
 

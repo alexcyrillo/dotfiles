@@ -25,3 +25,9 @@ fpath=($ZSH/custom/functions $fpath)
 autoload dotfiles_bkp
 
 fastfetch
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/alex/Dev/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/alex/Dev/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
