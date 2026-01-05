@@ -509,6 +509,10 @@
           "enabled": false
         },
         {
+          "id": "systemUpdate",
+          "enabled": true
+        },
+        {
           "id": "dockerManager",
           "enabled": true
         },
