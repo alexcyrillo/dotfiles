@@ -196,18 +196,32 @@ animations {
 // --- Workspaces ---
 
 workspace "dev" {
+    layout {
+        center-focused-column "on-overflow"
+    }  
     open-on-output "DP-2"
 }
 
 workspace "steam" {
+    layout {
+        center-focused-column "on-overflow"
+    }  
     open-on-output "DP-2"
 }
 
 workspace "dev-aux" {
+    layout {
+        center-focused-column "on-overflow"
+        default-column-width { proportion 0.5; }
+    }  
     open-on-output "DP-3"
 }
 
 workspace "chat" {
+    layout {
+        center-focused-column "on-overflow"
+        default-column-width { proportion 0.5; }
+    }  
     open-on-output "DP-3"
 }
 
