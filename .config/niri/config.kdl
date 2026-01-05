@@ -86,6 +86,8 @@ output "DP-3" {
     }
 }
 
+
+
 gestures {
     hot-corners {
         off
@@ -126,6 +128,7 @@ spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "/usr/lib/xdg-desktop-portal-gtk"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "superpaper"
+spawn-at-startup "sh" "-c" "dms ipc call brightness set 50 'ddc:i2c-10' & dms ipc call brightness set 50 'ddc:i2c-9'"
 
 environment {
 // Tema e Interface
@@ -221,7 +224,9 @@ window-rule {
 window-rule {
     match app-id="org.gnome.Calculator"
     //match app-id=r#"^org\.gnome\.Nautilus$"#
-    //match app-id=r#"^steam$"#
+    match title="^steam_app_*"
+    match title="^Steam$"
+    match app-id=r#"^steam$"#
     match app-id=r#"^xdg-desktop-portal$"#
     open-floating true
 }

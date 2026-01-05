@@ -1,8 +1,8 @@
 logging=false
-use hotkeys=true
-next wallpaper hotkey=control+super+shift+n
-pause wallpaper hotkey=control+super+shift+p
+use hotkeys=false
+next wallpaper hotkey=
+pause wallpaper hotkey=
 show_help_at_start=false
 set_command=/home/alex/.local/bin/superpaper-swww.sh {image}
 browse_default_dir=/home/alex/Imagens/[01] pessoal/[03] wallpaper
-warn_large_img=true
+warn_large_img=false

@@ -13,8 +13,15 @@ source $ZSH/oh-my-zsh.sh
 
 export SPACESHIP_CONFIG="$HOME/.oh-my-zsh/custom/spaceship.zsh"
 
+export SDL_JOYSTICK_HIDAPI_PS5=1
+export SDL_JOYSTICK_HIDAPI=1
+
 fpath=($ZSH/custom/functions $fpath)
 
 autoload dotfiles_bkp
 
 fastfetch
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
