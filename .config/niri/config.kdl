@@ -129,7 +129,6 @@ spawn-at-startup "/usr/lib/xdg-desktop-portal-gtk"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "superpaper"
 spawn-at-startup "sh" "-c" "dms ipc call brightness set 50 'ddc:i2c-10' & dms ipc call brightness set 50 'ddc:i2c-9'"
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "XDG_CURRENT_DESKTOP=GNOME"
 
 environment {
 // Tema e Interface
@@ -242,6 +241,7 @@ workspace "chat" {
 window-rule {
     match app-id="steam"
     
+    open-focused true
     open-maximized true
     open-on-workspace "jogo"
 }
@@ -252,6 +252,7 @@ window-rule {
     
     block-out-from "screen-capture"
     draw-border-with-background false
+    open-focused true
     open-fullscreen true
     open-on-workspace "jogo"
 }
