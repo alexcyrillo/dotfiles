@@ -1,27 +1,21 @@
 [/]
-control-center=['<Super>c']
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
-email=['<Super>e']
-home=['<Super>f']
-screensaver=['<Super>l']
+control-center=['<Super>comma']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+help=@as []
+home=['<Super>e']
 www=['<Super>w']
 
 [custom-keybindings/custom0]
-binding='<Shift><Control>Escape'
-command='flatpak run io.missioncenter.MissionCenter'
-name='Gerenciador de Tarefas'
-
-[custom-keybindings/custom1]
-binding='<Super>t'
+binding='<Super>Return'
 command='ptyxis'
 name='Terminal'
 
-[custom-keybindings/custom2]
-binding='<Super>z'
-command='flatpak run com.rtosta.zapzap'
-name='Whatsapp'
+[custom-keybindings/custom1]
+binding='<Alt><Super>l'
+command='systemctl suspend'
+name='Supender'
 
-[custom-keybindings/custom4]
-binding='<Super>s'
-command='flatpak run com.spotify.Client'
-name='Spotify'
+[custom-keybindings/custom2]
+binding='<Super>m'
+command='flatpak run io.missioncenter.MissionCenter'
+name='Mission Center'

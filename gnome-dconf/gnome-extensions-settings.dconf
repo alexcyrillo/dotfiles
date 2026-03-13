@@ -1,17 +1,44 @@
 [appindicator]
 icon-brightness=0.0
 icon-contrast=0.0
-icon-opacity=255
+icon-opacity=240
 icon-saturation=0.0
-icon-size=0
+icon-size=16
 legacy-tray-enabled=true
-tray-pos='right'
 
-[auto-move-windows]
-application-list=['dev-box-code.desktop:2', 'com.spotify.Client.desktop:5', 'com.getpostman.Postman.desktop:2', 'com.rtosta.zapzap.desktop:5', 'winboat.desktop:4', 'io.podman_desktop.PodmanDesktop.desktop:3', 'discord.desktop:5']
+[arcmenu]
+arcmenu-hotkey=@as []
+arcmenu-hotkey-overlay-key-enabled=true
+dash-to-panel-standalone=false
+force-menu-location='BottomCentered'
+hide-overview-on-arcmenu-open=false
+hotkey-open-primary-monitor=false
+menu-button-appearance='None'
+menu-item-grid-icon-size='Small'
+menu-layout='Runner'
+multi-monitor=false
+position-in-panel='Left'
+prefs-visible-page=0
+recently-installed-apps=['net.thunderbird.Thunderbird.desktop']
+right-panel-width=330
+runner-font-size=12
+runner-hotkey=['<Super>space']
+runner-hotkey-open-primary-monitor=false
+runner-hotkey-overlay-key-enabled=true
+runner-menu-height=505
+runner-menu-height-static=false
+runner-position='Centered'
+runner-search-display-style='Grid'
+runner-searchbar-location='Top'
+runner-show-frequent-apps=false
+runner-show-settings-button=false
+search-entry-border-radius=(true, 25)
+search-hidden=false
+show-activities-button=true
+update-notifier-project-version=70
 
 [blur-my-shell]
-pipelines={'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000001'>, 'params': <{'radius': <30>, 'brightness': <1>, 'unscaled_radius': <100>}>}>, <{'type': <'corner'>, 'id': <'effect_07823945800662'>, 'params': <@a{sv} {}>}>]>}}
+pipelines={'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'color'>, 'id': <'effect_51095134007267'>, 'params': <{'color': <(0.18039216101169586, 0.18039216101169586, 0.19607843458652496, 1.0)>}>}>]>}, 'pipeline_81741858316166': {'name': <'New pipeline'>, 'effects': <[<{'type': <'color'>, 'id': <'effect_36374643852529'>, 'params': <{'color': <(0.18039216101169586, 0.18039216101169586, 0.19607843458652496, 1.0)>}>}>, <{'type': <'corner'>, 'id': <'effect_47136837177652'>, 'params': <{'radius': <16>}>}>]>}}
 settings-version=2
 
 [blur-my-shell/appfolder]
@@ -19,11 +46,9 @@ brightness=0.59999999999999998
 sigma=30
 
 [blur-my-shell/applications]
-blur=true
-blur-on-overview=true
-dynamic-opacity=true
-enable-all=true
-opacity=155
+blur=false
+dynamic-opacity=false
+enable-all=false
 
 [blur-my-shell/coverflow-alt-tab]
 pipeline='pipeline_default'
@@ -31,10 +56,12 @@ pipeline='pipeline_default'
 [blur-my-shell/dash-to-dock]
 blur=true
 brightness=0.59999999999999998
-pipeline='pipeline_default_rounded'
+override-background=true
+pipeline='pipeline_81741858316166'
 sigma=30
 static-blur=true
 style-dash-to-dock=0
+unblur-in-overview=false
 
 [blur-my-shell/lockscreen]
 pipeline='pipeline_default'
@@ -43,11 +70,15 @@ pipeline='pipeline_default'
 pipeline='pipeline_default'
 
 [blur-my-shell/panel]
-blur=false
-brightness=0.59999999999999998
-pipeline='pipeline_default'
-sigma=30
+blur=true
+brightness=0.11
+force-light-text=false
+override-background=true
+override-background-dynamically=false
+pipeline='pipeline_default_rounded'
+sigma=0
 static-blur=true
+style-panel=0
 
 [blur-my-shell/screenshot]
 pipeline='pipeline_default'
@@ -58,146 +89,99 @@ sigma=30
 
 [caffeine]
 cli-toggle=false
-indicator-position-max=2
-inhibit-apps=['dev-box-code.desktop']
-user-enabled=true
+indicator-position-max=3
 
 [clipboard-indicator]
-cache-size=32
-display-mode=3
-history-size=32
+cache-size=15
+clear-history=@as []
+enable-keybindings=true
 move-item-first=true
+next-entry=@as []
+next-history-clear=-1
+paste-button=true
 paste-on-select=true
-preview-size=30
+prev-entry=@as []
+private-mode-binding=@as []
 strip-text=true
 toggle-menu=['<Super>v']
 
+[dash-to-dock]
+always-center-icons=true
+application-counter-overrides-notifications=true
+apply-custom-theme=true
+background-opacity=0.80000000000000004
+custom-theme-shrink=true
+dash-max-icon-size=32
+disable-overview-on-startup=true
+dock-position='BOTTOM'
+extend-height=false
+height-fraction=0.90000000000000002
+icon-size-fixed=false
+isolate-monitors=false
+isolate-workspaces=false
+multi-monitor=true
+preferred-monitor=-2
+preferred-monitor-by-connector='DP-3'
+running-indicator-style='METRO'
+scroll-action='cycle-windows'
+scroll-to-focused-application=true
+show-icons-emblems=false
+show-icons-notifications-counter=true
+show-mounts=false
+show-show-apps-button=false
+show-trash=false
+show-windows-preview=true
+transparency-mode='DEFAULT'
+
 [dash-to-panel]
 animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
-appicon-margin=4
-appicon-style='GRAYSCALE'
+appicon-margin=0
+appicon-padding=0
 dot-position='BOTTOM'
-dot-style-unfocused='METRO'
 extension-version=72
-global-border-radius=1
+global-border-radius=0
+group-apps=true
 hotkeys-overlay-combo='TEMPORARILY'
 intellihide=false
-multi-monitors=true
-panel-anchors='{"GSM-306AZSP48502":"MIDDLE","HWP-3CQ6250F17":"MIDDLE"}'
-panel-element-positions='{"HWP-3CQ6250F17":[{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"taskbar","visible":false,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"GSM-306AZSP48502":[{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"taskbar","visible":false,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
-panel-element-positions-monitors-sync=true
-panel-lengths='{"GSM-306AZSP48502":100,"HWP-3CQ6250F17":100}'
-panel-positions='{"GSM-306AZSP48502":"TOP","HWP-3CQ6250F17":"TOP"}'
+leftbox-padding=-1
+leftbox-size=16
+panel-anchors='{"MSI-PB6H344901147":"MIDDLE","MSI-PB6H525400055":"MIDDLE"}'
+panel-element-positions='{"MSI-PB6H344901147":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"desktopButton","visible":false,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"}],"MSI-PB6H525400055":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"desktopButton","visible":false,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"}]}'
+panel-lengths='{"MSI-PB6H344901147":100,"MSI-PB6H525400055":100}'
+panel-positions='{"MSI-PB6H344901147":"TOP","MSI-PB6H525400055":"TOP"}'
 panel-side-margins=0
-panel-sizes='{"GSM-306AZSP48502":32,"HWP-3CQ6250F17":32}'
+panel-side-padding=0
+panel-sizes='{"MSI-PB6H344901147":32,"MSI-PB6H525400055":32}'
 panel-top-bottom-margins=0
-panel-top-bottom-padding=0
+panel-top-bottom-padding=2
 prefs-opened=false
-scroll-panel-action='NOTHING'
+progress-show-count=false
+scroll-icon-action='PASS_THROUGH'
+scroll-panel-action='CHANGE_VOLUME'
 show-apps-icon-file=''
-stockgs-force-hotcorner=false
+show-favorites=true
+show-favorites-all-monitors=true
+show-running-apps=true
+status-icon-padding=0
 stockgs-keep-dash=true
 stockgs-keep-top-panel=false
-stockgs-panelbtn-click-only=false
-trans-gradient-bottom-color='#99c1f1'
-trans-gradient-bottom-opacity=0.0
-trans-gradient-top-opacity=1.0
-trans-panel-opacity=0.65000000000000002
+trans-bg-color='#222226'
 trans-use-border=false
-trans-use-custom-bg=false
-trans-use-custom-gradient=false
-trans-use-custom-opacity=true
-trans-use-dynamic-opacity=true
+trans-use-custom-bg=true
+tray-padding=1
+tray-size=14
 window-preview-title-position='TOP'
-
-[dash2dock-lite]
-animation-bounce=0.0
-animation-magnify=0.0
-animation-rise=0.0
-animation-spread=0.46000000000000002
-apps-icon-front=true
-autohide-dash=true
-autohide-speed=0.29999999999999999
-background-color=(0.0, 0.0, 0.0, 0.0)
-blur-background=false
-blur-resolution=3
-border-radius=0.0
-customize-label=false
-customize-topbar=true
-dock-location=0
-dock-padding=0.0
-edge-distance=0.80434782608695654
-hide-labels=false
-icon-effect=0
-icon-resolution=4
-icon-spacing=0.057142857142857141
-items-pullout-angle=0.0
-label-border-thickness=0
-msg-to-ext=''
-multi-monitor-preference=1
-notification-badge-size=0
-panel-mode=false
-preferred-monitor=0
-pressure-sense=true
-pressure-sense-sensitivity=0.75
-running-indicator-style=3
-scroll-sensitivity=0.75
-shrink-icons=true
-topbar-background-color=(0.0, 0.0, 0.0, 0.0)
-topbar-blur-background=false
-topbar-border-color=(1.0, 1.0, 1.0, 0.0)
-topbar-foreground-color=(0.0, 0.0, 0.0, 0.0)
-
-[date-menu-formatter]
-font-size=10
-formatter='02_original'
-pattern='kk:mm | dd/MM'
-text-align='center'
-update-level=0
-use-default-calendar=true
-
-[display-brightness-ddcutil]
-button-location=1
-ddcutil-binary-path='/usr/bin/ddcutil'
-ddcutil-queue-ms=130.0
-ddcutil-sleep-multiplier=40.0
-decrease-brightness-shortcut=['<Control>XF86MonBrightnessDown']
-hide-system-indicator=true
-increase-brightness-shortcut=['<Control>XF86MonBrightnessUp']
-only-all-slider=true
-position-system-menu=3.0
-show-all-slider=true
-show-internal-slider=false
-show-osd=false
-show-value-label=true
-step-change-keyboard=2.0
-
-[dynamic-panel]
-auto-width=false
-background-mode=0
-blur=true
-detection-mode=0
-float-align=1
-float-width=95
-radius-times=100
-solid-type=0
-top-margin=6
-transparent=76
-transparent-menus=true
-transparent-menus-keep-alpha=false
 
 [forge]
 css-last-update=uint32 37
-css-updated='1760619182643'
-focus-border-toggle=false
+css-updated='1773145060385'
+focus-border-toggle=true
+focus-on-hover-enabled=true
 move-pointer-focus-enabled=false
-quick-settings-enabled=true
-split-border-toggle=true
-tiling-mode-enabled=false
-window-gap-hidden-on-single=true
+tiling-mode-enabled=true
+window-gap-hidden-on-single=false
 window-gap-size=uint32 2
 window-gap-size-increment=uint32 1
-workspace-skip-tile=''
 
 [forge/keybindings]
 con-split-horizontal=@as []
@@ -210,16 +194,16 @@ focus-border-toggle=@as []
 mod-mask-mouse-tile='None'
 prefs-open=@as []
 prefs-tiling-toggle=@as []
-window-focus-down=@as []
-window-focus-left=@as []
-window-focus-right=@as []
-window-focus-up=@as []
+window-focus-down=['<Super>Down']
+window-focus-left=['<Super>Left']
+window-focus-right=['<Super>Right']
+window-focus-up=['<Super>Up']
 window-gap-size-decrease=@as []
 window-gap-size-increase=@as []
-window-move-down=@as []
-window-move-left=@as []
-window-move-right=@as []
-window-move-up=@as []
+window-move-down=['<Alt><Super>Down']
+window-move-left=['<Alt><Super>Left']
+window-move-right=['<Alt><Super>Right']
+window-move-up=['<Alt><Super>Up']
 window-resize-bottom-decrease=@as []
 window-resize-bottom-increase=@as []
 window-resize-left-decrease=@as []
@@ -238,203 +222,100 @@ window-swap-last-active=@as []
 window-swap-left=@as []
 window-swap-right=@as []
 window-swap-up=@as []
-window-toggle-always-float=@as []
+window-toggle-always-float=['<Alt><Super>f']
 window-toggle-float=@as []
 workspace-active-tile-toggle=@as []
 
 [gsconnect]
-devices=['08cfb8e4fa9d49299101ff935311f321']
-enabled=true
 missing-openssl=false
 name='tars'
-show-indicators=false
-
-[gsconnect/device/08cfb8e4fa9d49299101ff935311f321]
-certificate-pem='-----BEGIN CERTIFICATE-----\nMIIBjDCCATGgAwIBAgIBATAKBggqhkjOPQQDBDBPMSkwJwYDVQQDDCAwOGNmYjhl\nNGZhOWQ0OTI5OTEwMWZmOTM1MzExZjMyMTEUMBIGA1UECwwLS0RFIENvbm5lY3Qx\nDDAKBgNVBAoMA0tERTAeFw0yNDA3MzEwMzAwMDBaFw0zNTA3MzEwMzAwMDBaME8x\nKTAnBgNVBAMMIDA4Y2ZiOGU0ZmE5ZDQ5Mjk5MTAxZmY5MzUzMTFmMzIxMRQwEgYD\nVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RFMFkwEwYHKoZIzj0CAQYIKoZI\nzj0DAQcDQgAEGdI1E5NRAqkVmV/mUWJt/vUmgvC6P5oRSn9h889dNglF3T3/OZd5\nR/Adk40WQczxh6HbOYe6TJ/fy7Tu7qyUljAKBggqhkjOPQQDBANJADBGAiEA+ToU\n/z8pD/qCWPC+zuDAL0sItklLye/iXbby9zQzA7oCIQCLlYBrgikPVNyiDJN9DCSY\nfIOI/1kyYbCcKgKtFtNkbA==\n-----END CERTIFICATE-----\n'
-incoming-capabilities=['kdeconnect.battery', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request_mute']
-last-connection='lan://192.168.1.239:1716'
-name='Galaxy S23'
-outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.presenter', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.attachment_file', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
-paired=true
-supported-plugins=['battery', 'clipboard', 'connectivity_report', 'contacts', 'findmyphone', 'mousepad', 'mpris', 'notification', 'ping', 'presenter', 'runcommand', 'sftp', 'share', 'sms', 'systemvolume', 'telephony']
-type='phone'
-
-[gsconnect/device/08cfb8e4fa9d49299101ff935311f321/plugin/battery]
-custom-battery-notification-value=uint32 80
-
-[gsconnect/device/08cfb8e4fa9d49299101ff935311f321/plugin/clipboard]
-receive-content=true
-send-content=true
-
-[gsconnect/device/08cfb8e4fa9d49299101ff935311f321/plugin/notification]
-applications='{"Spotify":{"iconName":"system-run-symbolic","enabled":false},"Ferdium":{"iconName":"system-run-symbolic","enabled":false},"Relato de Problemas":{"iconName":"face-sad-symbolic","enabled":false},"Programas":{"iconName":"system-run-symbolic","enabled":true},"Arquivos":{"iconName":"org.gnome.Nautilus","enabled":true},"Energia":{"iconName":"","enabled":true},"Boxes":{"iconName":"org.gnome.Boxes","enabled":true},"Test Application Name":{"iconName":"dialog-information","enabled":false},"Ajustes":{"iconName":"gnome-tweaks","enabled":true},"flameshot":{"iconName":"","enabled":false},"Cliente de E-mail Thunderbird":{"iconName":"system-run-symbolic","enabled":false},"Impressoras":{"iconName":"org.gnome.Settings-printers-symbolic","enabled":true},"Solaar":{"iconName":"solaar","enabled":false},"Eventos e lembretes de tarefas":{"iconName":"org.gnome.Evolution-alarm-notify","enabled":true},"Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Zenity":{"iconName":"application-x-executable","enabled":true},"Discos":{"iconName":"org.gnome.DiskUtility","enabled":true},"Data & hora":{"iconName":"org.gnome.Settings-time-symbolic","enabled":true},"Analisador de uso de disco":{"iconName":"org.gnome.baobab","enabled":true},"Gerenciamento de cor":{"iconName":"org.gnome.Settings-color-symbolic","enabled":true},"Relógios":{"iconName":"org.gnome.clocks","enabled":false},"Monitor do Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Backups":{"iconName":"org.gnome.DejaDup","enabled":true},"Sunshine":{"iconName":"dev.lizardbyte.app.Sunshine-locked","enabled":true},"Contas on-line":{"iconName":"dialog-warning","enabled":true},"setroubleshoot":{"iconName":"/usr/share/icons/hicolor/scalable/apps/setroubleshoot_icon.svg","enabled":true},"Haguichi":{"iconName":"com.github.ztefn.haguichi","enabled":true},"Insync":{"iconName":"insync","enabled":true},"solaar":{"iconName":"","enabled":true},"Upscayl":{"iconName":"system-run-symbolic","enabled":true},"Steam":{"iconName":"","enabled":true},"SteamTinkerLaunch":{"iconName":"/dev/shm/steamtinkerlaunch/steamtinkerlaunch-steam-checked.png","enabled":true},"GoofCord":{"iconName":"io.github.milkshiift.GoofCord","enabled":true},"Firefox":{"iconName":"","enabled":true},"Zen Browser":{"iconName":"app.zen_browser.zen","enabled":false},"ZapZap":{"iconName":"","enabled":false},"discord":{"iconName":"","enabled":true},"Bottles":{"iconName":"com.usebottles.bottles","enabled":true},"WiVRn server":{"iconName":"io.github.wivrn.wivrn","enabled":true},"CorePaint":{"iconName":"org.cubocore.CorePaint","enabled":true},"Impressão":{"iconName":"io.gitlab.adhami3310.Impression","enabled":true},"Blender":{"iconName":"","enabled":true},"GNOME":{"iconName":"","enabled":true}}'
-
-[gsconnect/device/08cfb8e4fa9d49299101ff935311f321/plugin/share]
-receive-directory='/home/alex/Downloads'
-
-[gsconnect/messaging]
-window-maximized=false
-window-size=(849, 880)
-
-[gsconnect/preferences]
-window-maximized=false
-window-size=(1711, 1345)
-
-[gtile]
-auto-close=false
-follow-cursor=true
 
 [just-perfection]
 accent-color-icon=false
-accessibility-menu=true
+accessibility-menu=false
 activities-button=true
 background-menu=true
-calendar=true
 clock-menu=true
-controls-manager-spacing-size=0
+clock-menu-position-offset=0
 dash=true
+dash-app-running=true
 dash-icon-size=0
-double-super-to-appgrid=true
-invert-calendar-column-items=false
-keyboard-layout=true
-max-displayed-search-results=0
-osd=true
+dash-separator=true
+invert-calendar-column-items=true
+keyboard-layout=false
 panel=true
-panel-button-padding-size=0
-panel-icon-size=16
+panel-button-padding-size=2
+panel-icon-size=14
 panel-in-overview=true
 panel-indicator-padding-size=4
 panel-notification-icon=true
-panel-size=32
-power-icon=true
+panel-size=0
+power-icon=false
 quick-settings=true
 quick-settings-airplane-mode=false
+quick-settings-backlight=false
 quick-settings-dark-mode=true
+quick-settings-do-not-disturb=false
 quick-settings-night-light=false
 ripple-box=true
 search=true
-show-apps-button=true
-startup-status=1
-support-notifier-showed-version=34
+show-apps-button=false
+startup-status=0
 support-notifier-type=0
 theme=false
-top-panel-position=0
+type-to-search=false
 weather=true
-window-demands-attention-focus=false
+window-demands-attention-focus=true
+window-menu=true
+window-menu-take-screenshot-button=true
 window-picker-icon=true
 window-preview-caption=true
 window-preview-close-button=true
 workspace=true
 workspace-background-corner-size=0
-workspace-popup=true
 workspace-switcher-size=0
-workspace-wrap-around=true
 workspaces-in-app-grid=true
 world-clock=true
 
-[lennart-k/rounded_corners]
-corner-radius=28
-
-[libpanel]
-layout=[['quick-settings-audio-panel@rayzeq.github.io/main', 'gnome@main']]
-single-column=true
-
-[lockscreen-extension]
-background-size-1='cover'
-background-size-2='cover'
-backgrounds-folder-path='/home/alex/Imagens/Wallpaper'
-blur-radius-2=0
-gradient-direction-1='horizontal'
-gradient-direction-2='horizontal'
-local-share-backgrounds-folder-path=false
-primary-color-1='light blue'
-primary-color-2='gray'
-secondary-color-1='darkgray'
-secondary-color-2='black'
-user-background-1=true
-user-background-2=true
-usr-local-share-backgrounds-folder-path=false
-usr-share-backgrounds-folder-path=false
+[kimpanel]
+font='Adwaita Mono Italic 12'
+vertical=false
 
 [mediacontrols]
-blacklisted-players=@as []
+blacklisted-players=['org.mozilla.firefox.desktop']
 colored-player-icon=false
-elements-order=['ICON', 'LABEL', 'CONTROLS']
-extension-index=uint32 99
-extension-position='Left'
+extension-index=uint32 25
 fixed-label-width=true
 hide-media-notification=true
-label-width=uint32 140
+label-width=uint32 150
 scroll-labels=true
-show-control-icons=true
 show-control-icons-seek-backward=false
 show-control-icons-seek-forward=false
-show-label=true
 show-player-icon=true
 show-track-slider=true
 
-[notification-configurator]
-block-list='[]'
-enable-rate-limiting=true
-notification-position='right'
-notification-timeout=3000
+[multi-monitors-add-on]
+available-indicators=@as []
+screenshot-on-all-monitors=false
+show-activities=true
+show-app-menu=true
+show-date-time=true
+show-panel=true
+thumbnails-slider-position='none'
 
-[openbar]
-autofg-bar=true
-autotheme-font=false
-balpha=0.0
-bartype='Mainland'
-bgalpha=0.90000000000000002
-bguri='file:///home/alex/.cache/superpaper/temp/example_multi-a.png'
-bradius=0.0
-bwidth=0.0
-dark-bguri='file:///home/alex/.cache/superpaper/temp/example_multi-a.png'
-default-font='Sans 12'
-height=31.0
-import-export=false
-light-bguri='file:///home/alex/.cache/superpaper/temp/example_multi-a.png'
-monitor-height=1440
-monitor-width=3440
-pause-reload=false
-reloadstyle=false
-set-bottom-margin=false
-shalpha=0.0
-trigger-reload=false
-
-[quick-settings-audio-panel]
-always-show-input-volume-slider=false
-applications-volume-sliders-filters=@as []
-autohide-profile-switcher=true
-create-applications-volume-sliders=true
-create-mpris-controllers=false
-create-perdevice-volume-sliders=false
-create-profile-switcher=false
-group-applications-volume-sliders=true
-ignore-css=true
-ignore-virtual-capture-streams=true
-mpris-controllers-are-moved=false
-panel-type='independent-panel'
-profiles-renames={'Camera': {'off': ('Desligado', 'Desligado'), 'input:mono-fallback': ('Entrada Mono', 'Entrada Mono'), 'pro-audio': ('Pro Audio', 'Pro Audio')}, 'Family 17h/19h/1ah HD Audio Controller': {'off': ('Desligado', 'Desligado'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'input:analog-stereo': ('Entrada Estéreo analógico', 'Entrada Estéreo analógico'), 'output:analog-stereo': ('Saída Estéreo analógico', 'Saída Estéreo analógico'), 'output:analog-stereo+input:analog-stereo': ('Duplex estéreo analógico', 'Duplex estéreo analógico')}, 'Navi 21/23 HDMI/DP Audio Controller': {'off': ('Desligado', 'Desligado'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'output:hdmi-surround71-extra5': ('Saída Digital Surround 7.1 (HDMI 6)', 'Saída Digital Surround 7.1 (HDMI 6)'), 'output:hdmi-surround-extra5': ('Saída Digital Surround 5.1 (HDMI 6)', 'Saída Digital Surround 5.1 (HDMI 6)'), 'output:hdmi-surround71-extra4': ('Saída Digital Surround 7.1 (HDMI 5)', 'Saída Digital Surround 7.1 (HDMI 5)'), 'output:hdmi-surround-extra4': ('Saída Digital Surround 5.1 (HDMI 5)', 'Saída Digital Surround 5.1 (HDMI 5)'), 'output:hdmi-surround71-extra3': ('Saída Digital Surround 7.1 (HDMI 4)', 'Saída Digital Surround 7.1 (HDMI 4)'), 'output:hdmi-surround-extra3': ('Saída Digital Surround 5.1 (HDMI 4)', 'Saída Digital Surround 5.1 (HDMI 4)'), 'output:hdmi-surround71-extra1': ('Saída Digital Surround 7.1 (HDMI 2)', 'Saída Digital Surround 7.1 (HDMI 2)'), 'output:hdmi-surround-extra1': ('Saída Digital Surround 5.1 (HDMI 2)', 'Saída Digital Surround 5.1 (HDMI 2)'), 'output:hdmi-surround71': ('Saída Digital Surround 7.1 (HDMI)', 'Saída Digital Surround 7.1 (HDMI)'), 'output:hdmi-surround': ('Saída Surround digital 5.1 (HDMI)', 'Saída Surround digital 5.1 (HDMI)'), 'output:hdmi-stereo-extra5': ('Saída Digital Stereo (HDMI 6)', 'Saída Digital Stereo (HDMI 6)'), 'output:hdmi-stereo-extra4': ('Saída Digital Stereo (HDMI 5)', 'Saída Digital Stereo (HDMI 5)'), 'output:hdmi-stereo-extra3': ('Saída Digital Stereo (HDMI 4)', 'Saída Digital Stereo (HDMI 4)'), 'output:hdmi-stereo-extra2': ('Saída Digital Stereo (HDMI 3)', 'Saída Digital Stereo (HDMI 3)'), 'output:hdmi-stereo-extra1': ('Saída Digital Stereo (HDMI 2)', 'Saída Digital Stereo (HDMI 2)'), 'output:hdmi-stereo': ('Saída Estéreo digital (HDMI)', 'Saída Estéreo digital (HDMI)'), 'output:hdmi-surround71-extra2': ('Saída Digital Surround 7.1 (HDMI 3)', 'Saída Digital Surround 7.1 (HDMI 3)'), 'output:hdmi-surround-extra2': ('Saída Digital Surround 5.1 (HDMI 3)', 'Saída Digital Surround 5.1 (HDMI 3)')}, 'Rembrandt Radeon High Definition Audio Controller': {'off': ('Desligado', 'Desligado'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'output:hdmi-surround71-extra3': ('Saída Digital Surround 7.1 (HDMI 4)', 'Saída Digital Surround 7.1 (HDMI 4)'), 'output:hdmi-surround-extra3': ('Saída Digital Surround 5.1 (HDMI 4)', 'Saída Digital Surround 5.1 (HDMI 4)'), 'output:hdmi-surround71-extra2': ('Saída Digital Surround 7.1 (HDMI 3)', 'Saída Digital Surround 7.1 (HDMI 3)'), 'output:hdmi-surround-extra2': ('Saída Digital Surround 5.1 (HDMI 3)', 'Saída Digital Surround 5.1 (HDMI 3)'), 'output:hdmi-surround71-extra1': ('Saída Digital Surround 7.1 (HDMI 2)', 'Saída Digital Surround 7.1 (HDMI 2)'), 'output:hdmi-surround-extra1': ('Saída Digital Surround 5.1 (HDMI 2)', 'Saída Digital Surround 5.1 (HDMI 2)'), 'output:hdmi-surround71': ('Saída Digital Surround 7.1 (HDMI)', 'Saída Digital Surround 7.1 (HDMI)'), 'output:hdmi-surround': ('Saída Surround digital 5.1 (HDMI)', 'Saída Surround digital 5.1 (HDMI)'), 'output:hdmi-stereo-extra3': ('Saída Digital Stereo (HDMI 4)', 'Saída Digital Stereo (HDMI 4)'), 'output:hdmi-stereo-extra2': ('Saída Digital Stereo (HDMI 3)', 'Saída Digital Stereo (HDMI 3)'), 'output:hdmi-stereo-extra1': ('Saída Digital Stereo (HDMI 2)', 'Saída Digital Stereo (HDMI 2)'), 'output:hdmi-stereo': ('Saída Estéreo digital (HDMI)', 'Saída Estéreo digital (HDMI)')}, 'USB Audio & HID': {'off': ('Desligado', 'Desligado'), 'input:mono-fallback': ('Entrada Mono', 'Entrada Mono'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'output:iec958-stereo': ('Saída Estéreo digital (IEC958)', 'Saída Estéreo digital (IEC958)'), 'output:iec958-stereo+input:mono-fallback': ('Saída Estéreo digital (IEC958) + Entrada Mono', 'Saída Estéreo digital (IEC958) + Entrada Mono'), 'output:analog-stereo': ('Saída Estéreo analógico', 'Saída Estéreo analógico'), 'output:analog-stereo+input:mono-fallback': ('Saída Estéreo analógico + Entrada Mono', 'Saída Estéreo analógico + Entrada Mono')}, 'DualSense wireless controller (PS5)': {'off': ('Desligado', 'Desligado'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'input:iec958-stereo': ('Entrada Estéreo digital (IEC958)', 'Entrada Estéreo digital (IEC958)'), 'input:analog-stereo': ('Entrada Estéreo analógico', 'Entrada Estéreo analógico'), 'output:analog-surround-40': ('Saída Surround analógico 4.0', 'Saída Surround analógico 4.0'), 'output:analog-surround-40+input:iec958-stereo': ('Saída Surround analógico 4.0 + Entrada Estéreo digital (IEC958)', 'Saída Surround analógico 4.0 + Entrada Estéreo digital (IEC958)'), 'output:analog-surround-40+input:analog-stereo': ('Saída Surround analógico 4.0 + Entrada Estéreo analógico', 'Saída Surround analógico 4.0 + Entrada Estéreo analógico'), 'HiFi (Headphones, Headset)': ('Default (Headphones, Headset)', 'Default (Headphones, Headset)'), 'HiFi (Headphones, Mic)': ('Default (Headphones, Mic)', 'Default (Headphones, Mic)'), 'HiFi (Headset, Speaker)': ('Default (Headset, Speaker)', 'Default (Headset, Speaker)'), 'HiFi (Mic, Speaker)': ('Default (Mic, Speaker)', 'Default (Mic, Speaker)')}, 'Radeon High Definition Audio Controller [Rembrandt/Strix]': {'off': ('Desligado', 'Desligado'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'output:hdmi-surround71-extra3': ('Saída Digital Surround 7.1 (HDMI 4)', 'Saída Digital Surround 7.1 (HDMI 4)'), 'output:hdmi-surround-extra3': ('Saída Digital Surround 5.1 (HDMI 4)', 'Saída Digital Surround 5.1 (HDMI 4)'), 'output:hdmi-surround71-extra2': ('Saída Digital Surround 7.1 (HDMI 3)', 'Saída Digital Surround 7.1 (HDMI 3)'), 'output:hdmi-surround-extra2': ('Saída Digital Surround 5.1 (HDMI 3)', 'Saída Digital Surround 5.1 (HDMI 3)'), 'output:hdmi-surround71-extra1': ('Saída Digital Surround 7.1 (HDMI 2)', 'Saída Digital Surround 7.1 (HDMI 2)'), 'output:hdmi-surround-extra1': ('Saída Digital Surround 5.1 (HDMI 2)', 'Saída Digital Surround 5.1 (HDMI 2)'), 'output:hdmi-surround71': ('Saída Digital Surround 7.1 (HDMI)', 'Saída Digital Surround 7.1 (HDMI)'), 'output:hdmi-surround': ('Saída Surround digital 5.1 (HDMI)', 'Saída Surround digital 5.1 (HDMI)'), 'output:hdmi-stereo-extra3': ('Saída Digital Stereo (HDMI 4)', 'Saída Digital Stereo (HDMI 4)'), 'output:hdmi-stereo-extra2': ('Saída Digital Stereo (HDMI 3)', 'Saída Digital Stereo (HDMI 3)'), 'output:hdmi-stereo-extra1': ('Saída Digital Stereo (HDMI 2)', 'Saída Digital Stereo (HDMI 2)'), 'output:hdmi-stereo': ('Saída Estéreo digital (HDMI)', 'Saída Estéreo digital (HDMI)')}, 'Radeon High Definition Audio Controller': {'off': ('Desligado', 'Desligado'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'output:hdmi-surround71-extra3': ('Saída Digital Surround 7.1 (HDMI 4)', 'Saída Digital Surround 7.1 (HDMI 4)'), 'output:hdmi-surround-extra3': ('Saída Digital Surround 5.1 (HDMI 4)', 'Saída Digital Surround 5.1 (HDMI 4)'), 'output:hdmi-surround71-extra2': ('Saída Digital Surround 7.1 (HDMI 3)', 'Saída Digital Surround 7.1 (HDMI 3)'), 'output:hdmi-surround-extra2': ('Saída Digital Surround 5.1 (HDMI 3)', 'Saída Digital Surround 5.1 (HDMI 3)'), 'output:hdmi-surround71-extra1': ('Saída Digital Surround 7.1 (HDMI 2)', 'Saída Digital Surround 7.1 (HDMI 2)'), 'output:hdmi-surround-extra1': ('Saída Digital Surround 5.1 (HDMI 2)', 'Saída Digital Surround 5.1 (HDMI 2)'), 'output:hdmi-surround71': ('Saída Digital Surround 7.1 (HDMI)', 'Saída Digital Surround 7.1 (HDMI)'), 'output:hdmi-surround': ('Saída Surround digital 5.1 (HDMI)', 'Saída Surround digital 5.1 (HDMI)'), 'output:hdmi-stereo-extra3': ('Saída Digital Stereo (HDMI 4)', 'Saída Digital Stereo (HDMI 4)'), 'output:hdmi-stereo-extra2': ('Saída Digital Stereo (HDMI 3)', 'Saída Digital Stereo (HDMI 3)'), 'output:hdmi-stereo-extra1': ('Saída Digital Stereo (HDMI 2)', 'Saída Digital Stereo (HDMI 2)'), 'output:hdmi-stereo': ('Saída Estéreo digital (HDMI)', 'Saída Estéreo digital (HDMI)')}, 'Ryzen HD Audio Controller': {'off': ('Desligado', 'Desligado'), 'pro-audio': ('Pro Audio', 'Pro Audio'), 'input:analog-stereo': ('Entrada Estéreo analógico', 'Entrada Estéreo analógico'), 'output:analog-stereo': ('Saída Estéreo analógico', 'Saída Estéreo analógico'), 'output:analog-stereo+input:analog-stereo': ('Duplex estéreo analógico', 'Duplex estéreo analógico')}}
-version=2
+[pop-shell]
+smart-gaps=false
+tile-by-default=true
 
 [quicksettings-audio-devices-hider]
-available-input-names=['Microfone – Camera', 'Microfone – USB Audio & HID']
-available-output-names=['HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller', 'Saída analógica – USB Audio & HID', 'Saída digital (S/PDIF) – USB Audio & HID', 'Saída de linha – Ryzen HD Audio Controller']
+available-input-names=['Microfone – Trust GXT 232 Microphone ', 'Microfone – Camera']
+available-output-names=['Saída de linha – Ryzen HD Audio Controller', 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller']
 excluded-input-names=['Microfone – Camera']
-excluded-output-names=@as []
+excluded-output-names=['HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller']
 
 [quicksettings-audio-devices-renamer]
-input-names-map={'Microfone – USB Audio & HID': 'Headset', 'Microfone – Camera': 'Microfone – Camera', 'Microfone de headset – DualSense wireless controller (PS5)': 'Microfone de headset – DualSense wireless controller (PS5)', 'Entrada digital (S/PDIF) – DualSense wireless controller (PS5)': 'Entrada digital (S/PDIF) – DualSense wireless controller (PS5)', 'Internal Microphone – DualSense wireless controller (PS5)': 'Internal Microphone – DualSense wireless controller (PS5)'}
-output-names-map={'Saída de linha – Family 17h/19h/1ah HD Audio Controller': 'Caixa de Som', 'Saída digital (S/PDIF) – USB Audio & HID': 'Headset', 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller': 'Monitor', 'Saída analógica – USB Audio & HID': 'Saída analógica – USB Audio & HID', 'HDMI / DisplayPort – Navi 21/23 HDMI/DP Audio Controller': 'Monitor ', 'Saída analógica – DualSense wireless controller (PS5)': 'Saída analógica – DualSense wireless controller (PS5)', 'Saída de falsa': 'Saída de falsa', 'WiVRn': 'WiVRn', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller': 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller', 'Internal Mono Speaker – DualSense wireless controller (PS5)': 'Internal Mono Speaker – DualSense wireless controller (PS5)', 'Saída de linha – Ryzen HD Audio Controller': 'Saída de linha – Ryzen HD Audio Controller'}
-
-[rounded-window-corners-reborn]
-border-width=0
-focused-shadow={'verticalOffset': 4, 'horizontalOffset': 0, 'blurOffset': 0, 'spreadRadius': -60, 'opacity': 0}
-global-rounded-corner-settings={'padding': <{'left': uint32 2, 'right': 2, 'top': 2, 'bottom': 2}>, 'keepRoundedCorners': <{'maximized': false, 'fullscreen': false}>, 'borderRadius': <uint32 12>, 'smoothing': <0.0>, 'borderColor': <(0.14117647707462311, 0.12156862765550613, 0.19215686619281769, 1.0)>, 'enabled': <true>}
-settings-version=uint32 7
-skip-libadwaita-app=true
-skip-libhandy-app=true
-unfocused-shadow={'verticalOffset': 2, 'horizontalOffset': 0, 'blurOffset': 12, 'spreadRadius': -1, 'opacity': 65}
+input-names-map={'Microfone – Camera': 'Microfone – Camera', 'Microfone – Trust GXT 232 Microphone ': 'Microfone'}
+output-names-map={'Saída de linha – Ryzen HD Audio Controller': 'Caixa de Som', 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller': 'HDMI / DisplayPort 3 – Navi 21/23 HDMI/DP Audio Controller', 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller': 'HDMI / DisplayPort 5 – Navi 21/23 HDMI/DP Audio Controller'}
 
 [search-light]
 animation-speed=100.0
@@ -442,25 +323,16 @@ blur-brightness=0.59999999999999998
 blur-sigma=30.0
 entry-font-size=1
 monitor-count=2
+popup-at-cursor-monitor=true
 preferred-monitor=0
 scale-height=0.10000000000000001
 scale-width=0.10000000000000001
-shortcut-search=['<Control>space']
+shortcut-search=['<Super>space']
 show-panel-icon=false
-
-[space-bar/appearance]
-application-styles='.space-bar {\n  -natural-hpadding: 12px;\n}\n\n.space-bar-workspace-label.active {\n  margin: 0 4px;\n  background-color: rgba(255,255,255,0.3);\n  color: rgba(255,255,255,1);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 0px;\n  padding: 3px 8px;\n}\n\n.space-bar-workspace-label.inactive {\n  margin: 0 4px;\n  background-color: rgba(0,0,0,0);\n  color: rgba(255,255,255,1);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 0px;\n  padding: 3px 8px;\n}\n\n.space-bar-workspace-label.inactive.empty {\n  margin: 0 4px;\n  background-color: rgba(0,0,0,0);\n  color: rgba(255,255,255,0.5);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 0px;\n  padding: 3px 8px;\n}'
-
-[space-bar/behavior]
-indicator-style='workspaces-bar'
-smart-workspace-names=true
-
-[space-bar/state]
-version=34
 
 [spotify-controls]
 controls-position='right'
-position='leftmost-right'
+position='center'
 show-playback-controls=true
 show-spotify-icon=true
 show-track-info=true
@@ -468,166 +340,8 @@ show-track-info=true
 [status-area-horizontal-spacing]
 hpadding=2
 
-[tilingshell]
-enable-autotiling=true
-inner-gaps=uint32 4
-last-version-name-installed='17.0'
-layouts-json='[{"id":"Layout 2","tiles":[{"x":0,"y":0,"width":0.26627906976744187,"height":1,"groups":[1]},{"x":0.26627906976744187,"y":0,"width":0.46744186046511627,"height":1,"groups":[2,1]},{"x":0.7337209302325581,"y":0,"width":0.26627906976744187,"height":1,"groups":[2]}]},{"id":"855666","tiles":[{"x":0,"y":0,"width":0.33313953488372094,"height":1,"groups":[1]},{"x":0.33313953488372094,"y":0,"width":0.3337209302325581,"height":1,"groups":[2,1]},{"x":0.666860465116279,"y":0,"width":0.33313953488372017,"height":1,"groups":[2]}]},{"id":"924196","tiles":[{"x":0,"y":0,"width":0.5,"height":1,"groups":[1]},{"x":0.5,"y":0,"width":0.500000000000002,"height":1,"groups":[1]}]},{"id":"949022","tiles":[{"x":0,"y":0,"width":0.5,"height":0.5014245014245015,"groups":[1,3]},{"x":0.5,"y":0,"width":0.49999999999999994,"height":0.5,"groups":[2,1]},{"x":0.5,"y":0.5,"width":0.49999999999999994,"height":0.5,"groups":[2,1]},{"x":0,"y":0.5014245014245015,"width":0.5,"height":0.49857549857549854,"groups":[3,1]}]}]'
-outer-gaps=uint32 4
-overridden-settings='{}'
-selected-layouts=[['924196', 'Layout 2'], ['924196', 'Layout 2'], ['924196', 'Layout 2']]
-show-indicator=true
-
 [trayIconsReloaded]
-applications='[{"id":"solaar.desktop","hidden":false}]'
+icon-padding-vertical=0
+icon-size=16
 icons-limit=10
-
-[user-theme]
-name=''
-
-[vertical-workspaces]
-aaa-loading-profile=true
-always-activate-selected-window=false
-animation-speed-factor=100
-app-display-module=true
-app-favorites-module=true
-app-folder-close-button=true
-app-folder-order=0
-app-folder-remove-button=1
-app-grid-active-preview=false
-app-grid-animation=4
-app-grid-bg-blur-sigma=100
-app-grid-bg-brightness=50
-app-grid-columns=0
-app-grid-content=2
-app-grid-folder-center=true
-app-grid-folder-columns=0
-app-grid-folder-icon-grid=3
-app-grid-folder-icon-size=-1
-app-grid-folder-rows=0
-app-grid-folder-spacing=12
-app-grid-icon-size=-1
-app-grid-incomplete-pages=false
-app-grid-names=1
-app-grid-order=0
-app-grid-page-height-scale=90
-app-grid-page-width-scale=80
-app-grid-performance=true
-app-grid-remember-page=false
-app-grid-rows=0
-app-grid-show-page-arrows=true
-app-grid-spacing=12
-app-menu-close-wins-ws=true
-app-menu-force-quit=true
-app-menu-move-app=false
-app-menu-window-tmb=false
-center-app-grid=true
-center-dash-to-ws=false
-center-search=true
-click-empty-close=true
-close-ws-button-mode=2
-dash-bg-color=0
-dash-bg-gs3-style=false
-dash-bg-opacity=0
-dash-bg-radius=0
-dash-icon-scroll=2
-dash-isolate-workspaces=false
-dash-max-icon-size=48
-dash-module=true
-dash-position=3
-dash-position-adjust=0
-dash-show-windows-before-activation=0
-enable-page-shortcuts=true
-favorites-notify=1
-highlighting-style=1
-hot-corner-action=1
-hot-corner-fullscreen=true
-hot-corner-position=6
-hot-corner-ripples=true
-layout-module=true
-message-tray-module=true
-new-window-focus-fix=true
-new-window-monitor-fix=true
-notification-position=1
-osd-position=6
-osd-window-module=true
-overlay-key-module=true
-overlay-key-primary=1
-overlay-key-secondary=1
-overview-bg-blur-sigma=50
-overview-bg-brightness=50
-overview-esc-behavior=0
-overview-mode=0
-overview-select-window=0
-overview-sort-windows=0
-panel-module=true
-panel-overview-style=1
-panel-position=0
-panel-visibility=0
-profile-data-5={'workspaceThumbnailsPosition': '1', 'wsMaxSpacing': '10', 'wsPreviewScale': '95', 'secWsPreviewScale': '100', 'secWsPreviewShift': 'true', 'wsThumbnailsFull': 'false', 'secWsThumbnailsPosition': '0', 'dashPosition': '3', 'dashPositionAdjust': '0', 'wsTmbPositionAdjust': '0', 'showWsTmbLabels': '3', 'showWsTmbLabelsOnHover': 'false', 'closeWsButtonMode': '2', 'secWsTmbPositionAdjust': '0', 'dashMaxIconSize': '48', 'centerDashToWs': 'false', 'showAppsIconPosition': '1', 'wsThumbnailScale': '16', 'wsThumbnailScaleAppGrid': '13', 'secWsThumbnailScale': '16', 'showSearchEntry': 'false', 'centerSearch': 'true', 'centerAppGrid': 'true', 'dashBgOpacity': '0', 'dashBgColor': '0', 'dashBgRadius': '0', 'dashBgGS3Style': 'false', 'runningDotStyle': '0', 'enablePageShortcuts': 'true', 'showWsSwitcherBg': 'true', 'showWsPreviewBg': 'true', 'wsPreviewBgRadius': '16', 'showOverviewBackground': '0', 'overviewBgBrightness': '50', 'appGridBgBrightness': '50', 'searchBgBrightness': '50', 'overviewBgBlurSigma': '50', 'appGridBgBlurSigma': '100', 'appGridAnimation': '4', 'searchViewAnimation': '0', 'searchResultsBgStyle': '0', 'workspaceAnimation': '1', 'animationSpeedFactor': '100', 'winPreviewIconSize': '0', 'winTitlePosition': '0', 'startupState': '0', 'overviewMode': '0', 'workspaceSwitcherAnimation': '0', 'wsSwitcherMode': '0', 'searchIconSize': '0', 'searchViewScale': '100', 'appGridIconSize': '-1', 'appGridColumns': '0', 'appGridRows': '0', 'appGridFolderIconSize': '-1', 'appGridFolderColumns': '0', 'appGridFolderRows': '0', 'appGridFolderIconGrid': '3', 'appGridContent': '2', 'appGridIncompletePages': 'false', 'appGridOrder': '0', 'appFolderOrder': '0', 'appGridNamesMode': '1', 'appGridActivePreview': 'false', 'appGridFolderCenter': 'true', 'appGridPageWidthScale': '80', 'appGridPageHeightScale': '90', 'appGridSpacing': '12', 'appGridFolderSpacing': '12', 'appGridRememberPage': 'false', 'appFolderRemoveButton': '1', 'appFolderCloseButton': 'true', 'appGridShowPageArrows': 'true', 'searchFuzzy': 'true', 'searchMaxResultsRows': '5', 'searchAppGridMode': '1', 'searchIncludeSettings': 'false', 'dashShowWindowsBeforeActivation': '0', 'dashIconScroll': '2', 'dashIsolateWorkspaces': 'false', 'appMenuForceQuit': 'true', 'appMenuCloseWinsWs': 'true', 'appMenuMoveApp': 'false', 'appMenuWindowTmb': 'false', 'searchWindowsIconScroll': '1', 'panelVisibility': '0', 'panelPosition': '0', 'panelOverviewStyle': '1', 'windowAttentionMode': '1', 'wsSwPopupHPosition': '50', 'wsSwPopupVPosition': '95', 'wsSwPopupMode': '1', 'wsSwitcherWraparound': 'false', 'wsSwitcherIgnoreLast': 'false', 'favoritesNotify': '1', 'notificationPosition': '1', 'osdPosition': '6', 'hotCornerAction': '1', 'hotCornerPosition': '6', 'hotCornerFullscreen': 'true', 'hotCornerRipples': 'true', 'alwaysActivateSelectedWindow': 'false', 'winPreviewSecBtnAction': '0', 'winPreviewMidBtnAction': '0', 'winPreviewShowCloseButton': 'true', 'windowIconClickAction': '1', 'winPreviewHeightCompensation': '80', 'overlayKeyPrimary': '1', 'overlayKeySecondary': '1', 'overviewEscBehavior': '0', 'overviewSortWindows': '0', 'overviewSelectWindow': '0', 'clickEmptyClose': 'true', 'newWindowFocusFix': 'true', 'newWindowMonitorFix': 'true', 'appGridPerformance': 'true', 'highlightingStyle': '1', 'delayStartup': 'false', 'workspaceSwitcherPopupModule': 'true', 'workspaceAnimationModule': 'true', 'workspaceModule': 'true', 'windowManagerModule': 'true', 'windowPreviewModule': 'true', 'windowAttentionHandlerModule': 'true', 'swipeTrackerModule': 'true', 'searchControllerModule': 'true', 'searchModule': 'true', 'panelModule': 'true', 'overlayKeyModule': 'true', 'osdWindowModule': 'true', 'messageTrayModule': 'true', 'layoutModule': 'true', 'dashModule': 'true', 'appFavoritesModule': 'true', 'appDisplayModule': 'true'}
-profile-name-5='Minha Config'
-running-dot-style=0
-search-app-grid-mode=1
-search-bg-brightness=50
-search-controller-module=true
-search-fuzzy=true
-search-icon-size=0
-search-include-settings=false
-search-max-results-rows=5
-search-module=true
-search-results-bg-style=0
-search-view-animation=0
-search-width-scale=100
-search-windows-icon-scroll=1
-sec-wst-position-adjust=0
-secondary-ws-preview-scale=100
-secondary-ws-preview-shift=true
-secondary-ws-thumbnail-scale=16
-secondary-ws-thumbnails-position=0
-show-app-icon-position=2
-show-overview-background=0
-show-search-entry=false
-show-ws-preview-bg=true
-show-ws-switcher-bg=true
-show-wst-labels=3
-show-wst-labels-on-hover=false
-startup-state=0
-swipe-tracker-module=true
-win-attention-handler-module=true
-win-preview-height-compensation=80
-win-preview-icon-size=0
-win-preview-mid-mouse-btn-action=0
-win-preview-sec-mouse-btn-action=0
-win-preview-show-close-button=true
-win-title-position=0
-window-attention-mode=1
-window-icon-click-action=1
-window-manager-module=true
-window-preview-module=true
-workspace-animation=1
-workspace-animation-module=true
-workspace-module=true
-workspace-switcher-animation=0
-workspace-switcher-popup-module=true
-ws-max-spacing=10
-ws-preview-bg-radius=16
-ws-preview-scale=95
-ws-sw-popup-h-position=50
-ws-sw-popup-mode=1
-ws-sw-popup-v-position=95
-ws-switcher-ignore-last=false
-ws-switcher-mode=0
-ws-switcher-wraparound=false
-ws-thumbnail-scale=16
-ws-thumbnail-scale-appgrid=13
-ws-thumbnails-full=false
-ws-thumbnails-position=1
-wst-position-adjust=0
-
-[vitals]
-hot-sensors=['_memory_usage_', '__temperature_avg__', '_processor_usage_']
-position-in-panel=0
-
-[window-list]
-embed-previews=true
-show-on-all-monitors=false
+tray-margin-left=0

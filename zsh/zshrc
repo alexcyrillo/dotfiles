@@ -15,10 +15,12 @@ export SPACESHIP_CONFIG="$HOME/.oh-my-zsh/custom/spaceship.zsh"
 
 export SDL_JOYSTICK_HIDAPI_PS5=1
 export SDL_JOYSTICK_HIDAPI=1
+export XCURSOR_THEME="Bibata-Modern-Ice"
+export XCURSOR_SIZE=24
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 fpath=($ZSH/custom/functions $fpath)
 
@@ -31,3 +33,9 @@ fastfetch
 [[ -f /home/alex/Dev/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/alex/Dev/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(/home/alex/.local/bin/mise activate zsh)" # added by https://mise.run/zsh

@@ -1,6 +1,2 @@
 [/]
-focus-active-notification=@as []
-show-screen-recording-ui=['<Control><Alt>Print']
-toggle-application-view=@as []
 toggle-message-tray=@as []
-toggle-quick-settings=@as []
