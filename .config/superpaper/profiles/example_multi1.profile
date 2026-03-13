@@ -1,0 +1,9 @@
+name=example_multi1
+spanmode=advanced
+spangroups=01
+slideshow=True
+delay=21600.0
+sortmode=shuffle
+hotkey=control+win+f1
+perspective=default
+display0paths=/mnt/arquivo/Backup/Imagens/[03] wallpaper/32-9

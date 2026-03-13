@@ -8,6 +8,7 @@ dotfiles_bkp() {
     local ZSH_DIR=~/dotfiles/zsh
     local DCONF_DIR=~/dotfiles/gnome-dconf
     local SCRIPT_DIR=~/dotfiles/scripts
+    local OTHERS_DIR=~/dotflies/others
     local argument="$1"
 
     mkdir -p "$DCONF_DIR"
@@ -40,6 +41,11 @@ dotfiles_bkp() {
     _bkp_config() {
         echo "-> Fazendo backup da pasta config..."
         git -C "$REPO_DIR" add "$CONFIG_DIR"
+    }
+    
+    _bkp_others() {
+        echo "-> Fazendo backup da pasta others..."
+        git -C "$REPO_DIR" add "$OTHERS_DIR"
     }
 
     # --- Função de Commit Automática ---
@@ -89,6 +95,10 @@ dotfiles_bkp() {
             _bkp_script
             _bkp_commit_push "$SCRIPT_DIR"
             ;;
+        others)
+            _bkp_others
+            _bkp_commit_push "$OTHERS_DIR"
+            ;;
         dconf-keys)
             _bkp_dconf_keys
             _bkp_commit_push "$DCONF_DIR"
@@ -106,6 +116,7 @@ dotfiles_bkp() {
             _bkp_zsh
             _bkp_config
             _bkp_script
+            _bkp_others
             _bkp_dconf_keys
             _bkp_dconf_exts
             _bkp_commit_push "$ZSH_DIR" "$CONFIG_DIR" "$SCRIPT_DIR" "$DCONF_DIR"
