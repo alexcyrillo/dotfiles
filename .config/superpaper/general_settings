@@ -4,5 +4,5 @@ next wallpaper hotkey=
 pause wallpaper hotkey=
 show_help_at_start=false
 set_command=/home/alex/dotfiles/scripts/superpaper-swww.sh {image}
-browse_default_dir=/mnt/arquivo/Backup/Imagens/[03] wallpaper
+browse_default_dir=/home/alex/Imagens/[03] wallpaper
 warn_large_img=false

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 1. Defina a pasta onde estão suas imagens originais
-SOURCE_FOLDER="/mnt/arquivo/Backup/Imagens/[03] wallpaper/32-9"
+SOURCE_FOLDER="/home/alex/Imagens/[03] wallpaper/32-9"
 
 # 2. Define o caminho de saída (o mesmo que você enviou)
 OUTPUT_PATH="/home/alex/Imagens/[03] wallpaper/sp_part.png"
